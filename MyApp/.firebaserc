@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pwm-galactic-bites-48faf": {
+      "hosting": {
+        "app": [
+          "pwm-galactic-bites-48faf"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pwm-galactic-bites-48faf"
+  }
+}
