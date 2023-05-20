@@ -1,0 +1,96 @@
+@import '../../../theme/variables.scss';
+
+.header {
+    --ion-toolbar-background: $black;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    height: 50px;
+    width: 100%;
+    background-color: $black;
+
+    padding: 10px;
+    z-index: 5;
+    top: 0;
+
+    #logo {
+        width: 35px;
+        height: 35px;
+        margin: 0 15px;
+    } 
+
+    .list {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        --ion-item-background: $black;
+
+        .item {
+            background-color: $black;
+            --ion-item-background: $black;
+            font-weight: bold;
+            cursor: pointer;
+            width: 7em;
+            text-align: center;
+            font-size: 12pt;
+
+            &:hover {
+                color: rgba($turquoise, .9);
+            }
+        }
+    }
+    
+    #shopping-cart {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;  
+        margin-right: 1em; 
+        
+        &:hover { transform: scale(1.1); }
+        &:active { transform: scale(1); }
+    }
+        
+    .points {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1em;
+
+        .label {
+            color: $white;
+            text-transform: uppercase;
+            font-style: italic;
+            font-size: 8pt;
+            margin: 0 0 1px 0;
+            font-weight: bold;
+        }   
+
+        .count {
+            background-color: $white;
+            font-size: 9pt;
+            width: 5em;
+            height: 1.1em;
+            color: $black;
+            font-weight: bold;
+            pointer-events: none;
+            padding: 2px 5px;
+            text-align: start;
+        }        
+    }
+
+    #user-pic {
+        cursor: pointer;
+        background-color: $white;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin-inline: 0 10px;
+        border: 1px solid $white;
+
+        &:hover { transform: scale(1.05); }
+        &:active { transform: scale(1); }
+    }
+}

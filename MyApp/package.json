@@ -1,5 +1,5 @@
 {
-  "name": "MyApp",
+  "name": "Galactic Bites",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -31,6 +31,7 @@
     "@ionic/angular": "^7.0.0",
     "@ionic/cli": "^7.1.1",
     "@ionic/core": "^7.0.5",
+    "bootstrap": "^5.2.3",
     "cordova-sqlite-storage": "^6.1.0",
     "firebase": "^9.22.0",
     "ionicons": "^7.0.0",
@@ -70,5 +71,8 @@
     "tslib": "^2.5.0",
     "typescript": "~5.0.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "config": {
+    "ionic_sass": "./sass.config.js"
+  }
 }
