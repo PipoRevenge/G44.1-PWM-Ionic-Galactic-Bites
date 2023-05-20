@@ -13,6 +13,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HeaderComponent } from './components/header/header.component';
+import { SQLite } from '@ionic-native/sqlite/ngx';
+import { SqliteDataService } from './services/database/sqlite-data.service';
 
 @NgModule({
   declarations: [AppComponent],
