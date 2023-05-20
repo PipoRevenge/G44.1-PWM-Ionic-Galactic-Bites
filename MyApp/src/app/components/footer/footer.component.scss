@@ -1,0 +1,50 @@
+@import '../../../theme/variables.scss';
+
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: fit-content;
+  opacity: .8;
+
+  background-color: transparent;
+  color: $white;
+  font-weight: bold;
+
+    .info {
+        padding: 1em 10px;
+        margin: 0;
+        width: 100%;
+        background-color: rgba($black, 0.6);
+
+        .item {
+            display: flex;
+            align-items: center;
+
+            .img {
+                width: 1.4em;
+                height: 1.4em;
+
+                margin-right: 1em;
+            }
+
+            ion-label { 
+                font-size: 10pt; 
+                color: rgba($white, 0.8);
+            }
+        }
+    }
+
+    .copyright {
+        display: flex;
+        justify-content: center;
+        background-color: rgba($dark-purple, 0.6);
+        color: rgba($white, 0.8);
+        font-size: 8pt;
+        height: 2.5em;
+        text-align: center;
+    }
+}
