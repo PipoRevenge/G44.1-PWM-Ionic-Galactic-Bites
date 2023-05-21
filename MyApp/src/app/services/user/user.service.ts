@@ -4,6 +4,8 @@ import { FirebaseAuthService } from '../database/firebase-auth.service';
 import { __await } from 'tslib';
 import { ShoppingCartService } from '../shopping-cart/shopping-cart.service';
 import { Observable, from } from 'rxjs';
+import { SqliteDataService } from '../database/sqlite-data.service';
+import { Product } from 'src/app/models/product';
 
 
 @Injectable({
@@ -12,7 +14,7 @@ import { Observable, from } from 'rxjs';
 export class UserService {
 
 
-  constructor(private firebaseAuthService: FirebaseAuthService, private shoppingCartService: ShoppingCartService) {}
+  constructor(private firebaseAuthService: FirebaseAuthService, private shoppingCartService: ShoppingCartService, private sqliteDataServices:SqliteDataService) {}
 
   user: User | null = null;
 
@@ -122,7 +124,14 @@ export class UserService {
   getUserPoints() {
     return this.user.points;
   }
-  
+  async addFavProduct(product:Product):Promise<void>  {
+    await this.firebaseAuthService.addFavProductAtUser(product.id)
+      .then(async () => {
+      return await this.sqliteDataServices.addFavProduct(product).then(() => {
+        return;
+      })
+    })
+  }
   
   
 }
