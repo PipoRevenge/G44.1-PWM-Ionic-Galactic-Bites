@@ -13,8 +13,6 @@ import * as firebase from 'firebase/compat';
 })
 export class FirebaseAuthService {
   
-
-  
   constructor(private auth: Auth, private afAuth: AngularFireAuth, private firestoreService: FirebaseDataService) {}
 
   async signUp({email, password, name, phone}: {email: string; password: string; name:string; phone:string;}): Promise<User | null>  {
@@ -28,7 +26,8 @@ export class FirebaseAuthService {
             email: email,
             points: 0,
             phone: phone,
-            shoppingCart:new Map<string, number>()
+            shoppingCart: new Map<string, number>(),
+            favProducts:  []
           };
           return this.firestoreService.setUserData(user).then(() => { return user});
       })
@@ -123,6 +122,10 @@ export class FirebaseAuthService {
         console.error('Error deleting user:', error);
       }
     }
+  }
+  async addFavProductAtUser(id: string) {
+    //implementar
+    throw new Error('Method not implemented.');
   }
 
 }

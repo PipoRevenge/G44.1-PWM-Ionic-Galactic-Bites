@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { FirebaseDataService } from './firebase-data.service';
+import { Product } from 'src/app/models/product';
 
 export interface User0 {
     id: string;
@@ -19,7 +20,7 @@ export interface User0 {
 export class SqliteDataService {
    private db: SQLiteObject;
 
-  constructor(private sqlite: SQLite, private firestoreService: FirebaseDataService) { }
+  constructor(private sqlite: SQLite) { }
 
   async initDatabase() {
     try {
@@ -47,7 +48,7 @@ export class SqliteDataService {
       console.error('Error al inicializar la base de datos', error);
     }
   }
-async addFavProduct(producto) {
+async addFavProduct(producto:Product) {
   try {
     const data = [producto.category, producto.description, producto.discount, producto.hasPoints, producto.image, producto.name, producto.price];
     const result = await this.db.executeSql(`INSERT INTO products (category, description, discount, hasPoints, image, name, price) VALUES (?, ?, ?, ?, ?, ?, ?)`, data);
@@ -64,7 +65,7 @@ async removeFavProduct(productId) {
     console.error('Error al eliminar el producto de la tabla', error);
   }
 }
-async addMultipleFavProducts(productos) {
+async addMultipleFavProducts(productos:Product[]) {
   try {
     const values = productos.map(producto => `('${producto.category}', '${producto.description}', ${producto.discount}, ${producto.hasPoints}, '${producto.image}', '${producto.name}', ${producto.price})`).join(',');
     const result = await this.db.executeSql(`INSERT INTO products (category, description, discount, hasPoints, image, name, price) VALUES ${values}`, []);

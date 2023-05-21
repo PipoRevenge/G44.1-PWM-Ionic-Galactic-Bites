@@ -90,7 +90,8 @@ export class FirebaseDataService {
       email: userData.email,
       points: userData.points,
       phone: userData.phone, 
-      shoppingCart: Object.fromEntries(userData.shoppingCart)
+      shoppingCart: Object.fromEntries(userData.shoppingCart),
+      favProducts:userData.favProducts
     })
   }
   
@@ -111,7 +112,8 @@ export class FirebaseDataService {
       email: userData.email,
       points: userData.points,
       phone: userData.phone, 
-      shoppingCart: userData.shoppingCart
+      shoppingCart: userData.shoppingCart,
+      favProducts:userData.favProducts
     });
 
 
