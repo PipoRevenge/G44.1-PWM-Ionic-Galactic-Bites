@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { OffersPageRoutingModule } from './offers-routing.module';
 
 import { OffersPage } from './offers.page';
+import { SpaceBackgroundModule } from 'src/app/components/space-background/space-background.module';
+import { FooterModule } from 'src/app/components/footer/footer.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OffersPageRoutingModule
+    OffersPageRoutingModule,
+    SpaceBackgroundModule,
+    FooterModule
   ],
   declarations: [OffersPage]
 })
