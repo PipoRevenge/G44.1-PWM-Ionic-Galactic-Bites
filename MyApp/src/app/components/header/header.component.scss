@@ -28,6 +28,7 @@
         align-items: center;
         text-align: center;
         --ion-item-background: $black;
+        margin-left: 1em;
 
         .item {
             background-color: $black;
@@ -58,6 +59,9 @@
         cursor: pointer;
         font-size: 15pt;
         margin-right: .5em;
+
+        &:hover { transform: scale(1.1); }
+        &:active { transform: scale(1); }
     }
 
     .points {
@@ -75,6 +79,8 @@
         }   
 
         .count {
+            display: flex;
+            align-items: center;
             background-color: $white;
             font-size: 9pt;
             width: 5em;

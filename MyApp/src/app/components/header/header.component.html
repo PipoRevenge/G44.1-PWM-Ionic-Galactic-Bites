@@ -5,9 +5,9 @@
         src="../../../assets/icon/planet.svg"
       ></ion-img>
       <ion-list class="list">
-        <ion-item class="item" lines="none" [style]="homeStyle"><ion-label class="page-link">INICIO</ion-label></ion-item>
-        <ion-item class="item" lines="none" [style]="menuStyle"><ion-label class="page-link">MENÚ</ion-label></ion-item>
-        <ion-item class="item" lines="none" [style]="offersStyle"><ion-label class="page-link">OFERTAS</ion-label></ion-item>
+        <ion-item class="item" lines="none" [style]="homeStyle" (click)="navigateTo('/')">INICIO</ion-item>
+        <ion-item class="item" lines="none" [style]="menuStyle" (click)="navigateTo('/menu')">MENÚ</ion-item>
+        <ion-item class="item" lines="none" [style]="offersStyle" (click)="navigateTo('/offers')">OFERTAS</ion-item>
       </ion-list>
     </ion-row>
 
@@ -20,7 +20,7 @@
         <ion-grid>
           <ion-col class="points">
             <ion-label class="label">PUNTOS</ion-label>
-            <ion-badge class="count">0</ion-badge>
+            <ion-badge class="count">{{ points }}</ion-badge>
           </ion-col>  
         </ion-grid>
         <ion-img id="user-pic"

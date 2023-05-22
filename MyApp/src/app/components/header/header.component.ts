@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit,  ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 // import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -9,23 +9,41 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  path: string = this.router.url;
-  homeStyle: any;
-  menuStyle: any;
-  offersStyle: any;
+  homeStyle: any = { color: '' };
+  menuStyle: any = { color: '' };
+  offersStyle: any = { color: '' };
 
-  userPic: string = "../../../assets/icons/user.png";
+  // userPic: string = "../../../assets/icons/user.png";
   points: number = 0;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
   // constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
-    console.log(this.path);
-    if (this.path == '/') this.homeStyle = { color: '#39DE9A' };
-    if (this.path == '/menu') this.menuStyle = { color: '#39DE9A' };
-    if (this.path == '/offers') this.offersStyle = { color: '#39DE9A' };
+    this.updateNav();    
     // this.checkUser();
+  }
+
+  private resetNav() {
+    this.homeStyle = { color: '' };
+    this.menuStyle = { color: '' };
+    this.offersStyle = { color: '' };
+  }
+
+  private updateNav() {
+    this.router.events.subscribe((event: any) => { 
+      this.resetNav();
+      let path: string = this.router.url;
+      if (event instanceof NavigationEnd) path = event.urlAfterRedirects; 
+      if (path == '/') this.homeStyle = { color: '#39DE9A' };
+      else if (path == '/menu') this.menuStyle = { color: '#39DE9A' };
+      else if (path == '/offers') this.offersStyle = { color: '#39DE9A' };
+    });
+  }
+
+  navigateTo(url: string) {
+    this.router.navigate([url]);
+    this.updateNav();
   }
 
   // checkUser(): void {

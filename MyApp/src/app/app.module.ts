@@ -17,8 +17,17 @@ import { SQLite } from '@ionic-native/sqlite/ngx';
 import { SqliteDataService } from './services/database/sqlite-data.service';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideDatabase(() => getDatabase()), provideFirestore(() => getFirestore()), provideStorage(() => getStorage())],
+  declarations: [AppComponent, HeaderComponent],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    provideFirebaseApp(() => initializeApp(environment.firebase)), 
+    provideAuth(() => getAuth()), 
+    provideDatabase(() => getDatabase()), 
+    provideFirestore(() => getFirestore()), 
+    provideStorage(() => getStorage()),
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
