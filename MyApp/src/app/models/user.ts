@@ -5,5 +5,5 @@ export interface User {
     phone: string;
     points: number;
     shoppingCart: Map<string, number>;
-    favProducts: [];
+    favProducts: string[];
 }
