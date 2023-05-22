@@ -54,6 +54,12 @@
         &:active { transform: scale(1); }
     }
         
+    #star {
+        cursor: pointer;
+        font-size: 15pt;
+        margin-right: .5em;
+    }
+
     .points {
         display: flex;
         flex-direction: column;
