@@ -9,6 +9,7 @@ import { OffersPageRoutingModule } from './offers-routing.module';
 import { OffersPage } from './offers.page';
 import { SpaceBackgroundModule } from 'src/app/components/space-background/space-background.module';
 import { FooterModule } from 'src/app/components/footer/footer.module';
+import { BannerCarouselModule } from 'src/app/components/banner-carousel/banner-carousel.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { FooterModule } from 'src/app/components/footer/footer.module';
     IonicModule,
     OffersPageRoutingModule,
     SpaceBackgroundModule,
-    FooterModule
+    FooterModule,
+    BannerCarouselModule
   ],
   declarations: [OffersPage]
 })

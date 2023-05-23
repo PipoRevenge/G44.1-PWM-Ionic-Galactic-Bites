@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Category } from 'src/app/models/category';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-category-carousel',
@@ -10,10 +9,8 @@ export class CategoryCarouselComponent {
   @Input() categories: string[] = ['complementos', 'principales', 'bebidas', 'postres'];
   @Output() changed: EventEmitter<string> = new EventEmitter<string>();
 
-  carouselItems: string[] = [];
-  position: number = 0;
-
   swiperSlideChanged(e: any) {
     console.log('changed: ', e);
+    this.changed.emit(e);
   }
 }

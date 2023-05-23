@@ -1,3 +1,9 @@
-<p>
-  banner-carousel works!
-</p>
+<swiper-container class="carousel"
+    [loop]="true"
+    [pagination]="true">
+    <ng-container *ngFor="let image of images">
+        <swiper-slide class="slide">
+            <ion-img [src]="image"></ion-img>  
+        </swiper-slide>
+    </ng-container>
+</swiper-container>

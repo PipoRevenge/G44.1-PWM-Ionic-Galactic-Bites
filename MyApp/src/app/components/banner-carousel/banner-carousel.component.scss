@@ -1,0 +1,24 @@
+@import '../../../theme/variables.scss';
+
+.carousel {
+    width: 100%;
+    height: 25vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba($black, .2);
+    --swiper-pagination-bullet-inactive-color: #FFF;
+
+    .slide {
+        width: 100%;
+        height: 100%;
+
+        ion-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

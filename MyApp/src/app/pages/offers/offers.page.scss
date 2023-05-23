@@ -1,0 +1,20 @@
+@import '../../../theme/variables';
+
+.offers {
+    align-self: center;
+    background-color: rgba($black, .5);
+    height: 100%;
+    max-height: fit-content;
+    width: 90%;
+    margin-top: 50px;
+    padding: 0;
+}
+
+.space {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
