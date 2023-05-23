@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { CategoryCarouselComponent } from './category-carousel.component';
@@ -11,6 +11,7 @@ import { CategoryCarouselComponent } from './category-carousel.component';
     CommonModule,
     IonicModule
   ],
-  exports: [CategoryCarouselComponent]
+  exports: [CategoryCarouselComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CategoryCarouselModule { }

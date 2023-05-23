@@ -1,68 +1,28 @@
 @import '../../../theme/variables.scss';
 
-.slider-product {
+.carousel {
     width: 100%;
-    height: 250px;
-
-    background-color: rgba($black, .2);
-
-    color: $white;
-    margin: 0;
-    padding: 1% 4%;
-    box-sizing: border-box;
+    height: 14vh;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
-    .bi {
-        font-size: 30pt;
-        background: -webkit-linear-gradient($turquoise, $lavender);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    background-color: rgba($black, .2);
+    --swiper-pagination-bullet-inactive-color: #FFF;
 
-        &:hover {
-            cursor: pointer;
-            transform: scale(1.1);
-        }
-        &:active { transform: scale(1); }
-    }
-
-    .wrapper {
+    .category {
         display: flex;
-        justify-content: space-between;
-        width: 70%;
-        height: 100%;
+        justify-content: center;
         align-items: center;
+        background: linear-gradient(.25turn, rgba($turquoise, .8), rgba($lavender, .8));
 
-        .category {
-            padding: 5%;
-            box-sizing: border-box;
-            width: 10.5em;
-            height: 10.5em;
-            
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 5vh;
+            text-transform: uppercase;
             font-weight: bold;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: -webkit-linear-gradient(rgba($turquoise, .8), rgba($lavender, .8));
-            border: 2px solid rgba($white, .6);
-
-            .name {
-                margin: 0;
-                padding: 0;
-                text-transform: uppercase;
-                font-size: 14pt;
-
-                &:hover { cursor: pointer; }
-            }
-
-            &:hover { 
-                cursor: pointer; 
-                box-shadow: 0 0 20px rgba($white, .6);
-            }
         }
     }
 }

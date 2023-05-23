@@ -1,14 +1,10 @@
-<!-- <ion-card class="slider-product">
-    <i id="left" (click)="moveLeft()" class="bi bi-arrow-left-circle-fill"></i>
-    <div class="wrapper">
-        <ng-container *ngFor="let category of carouselItems">
-            <div class="category" (click)="onClick(category)">
-                <p class="name">{{ category }}</p>    
-            </div>
-        </ng-container>
-    </div>
-    <i id="right" (click)="moveRight()" class="bi bi-arrow-right-circle-fill"></i>
-</ion-card> -->
-<!-- <ion-slides [options]="option" class="ion-margin-top">
-
-</ion-slides> -->
+<swiper-container class="carousel"
+    (slidechange)="swiperSlideChanged($event)"
+    [loop]="true"
+    [pagination]="true">
+    <ng-container *ngFor="let category of categories">
+        <swiper-slide class="category">
+            <p class="name">{{ category }}</p>  
+        </swiper-slide>
+    </ng-container>
+</swiper-container>
