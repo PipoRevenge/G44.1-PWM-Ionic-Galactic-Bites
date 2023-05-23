@@ -7,6 +7,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { FooterModule } from 'src/app/components/footer/footer.module';
 import { SpaceBackgroundModule } from 'src/app/components/space-background/space-background.module';
+import { BannerModule } from 'src/app/components/banner/banner.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SpaceBackgroundModule } from 'src/app/components/space-background/space
     IonicModule,
     HomePageRoutingModule,
     FooterModule,
-    SpaceBackgroundModule
+    SpaceBackgroundModule,
+    BannerModule
   ],
   declarations: [HomePage]
 })

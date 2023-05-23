@@ -1,0 +1,83 @@
+@mixin cyber-btn($width, $height, $font-size, $background-color, $color, $font-family) {
+    width: $width;
+    height: $height;
+    font-size: $font-size;
+    font-family: $raleway;
+
+    font-weight: bold;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    background-color: $background-color;
+    color: $color;
+    box-shadow: 0 5px 5px rgba($color, 0.7);
+    border: 2px solid $background-color;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $color;
+        color: $background-color;
+        border: 2px solid $color;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 5px rgba($color, 0.7);
+    }
+
+    &:active { 
+        box-shadow: 0 3px 5px rgba($color, 0.7);
+        transform: translateY(4px); 
+    }
+}
+
+@mixin simple-cyber-btn($width, $height, $font-size, $background-color, $color, $font-family) {
+    width: $width;
+    height: $height;
+    font-size: $font-size;
+    font-family: $raleway;
+
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+    text-transform: uppercase;
+
+    background-color: $background-color;
+    color: $color;
+    border: 2px solid $color;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $color;
+        color: $background-color;
+        transform: translateY(-3px);
+    }
+
+    &:active { 
+        transform: translateY(4px); 
+    }
+}
+
+@mixin cool-input($background-color, $color, $gradient-1, $gradient-2, $border-weight, $padding) {
+    height: 2.5em;
+    border-radius: 50px;
+    background-color: $background-color;
+    color: $color;
+    padding: $padding;
+    font-weight: bold;
+    border: $border-weight solid transparent;
+    background: linear-gradient($background-color, $background-color) padding-box, linear-gradient(to right, $gradient-1, $gradient-2) border-box;
+}
+
+@mixin cool-input-2($height, $radius, $background-color, $color, $gradient-1, $gradient-2, $border-weight, $padding) {
+    height: $height;
+    border-radius: $radius;
+    background-color: $background-color;
+    color: $color;
+    padding: $padding;
+    font-weight: bold;
+    border: $border-weight solid transparent;
+    background: linear-gradient($background-color, $background-color) padding-box, linear-gradient(to right, $gradient-1, $gradient-2) border-box;
+}

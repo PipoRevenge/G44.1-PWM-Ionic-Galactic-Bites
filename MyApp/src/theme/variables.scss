@@ -1,5 +1,6 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 /** my colors **/
 $black: rgb(0, 0, 0);
@@ -15,6 +16,7 @@ $pantone: rgb(239, 35, 60);
 $emerald: #39DE9A;
 $light-turquoise: #8EFFEE;
 $lavender-pink: #EEAECA;
+$raleway: "Raleway", sans-serif;
 
 /** Ionic CSS Variables **/
 :root {
