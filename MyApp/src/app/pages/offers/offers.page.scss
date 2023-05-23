@@ -8,6 +8,25 @@
     width: 90%;
     margin-top: 50px;
     padding: 0;
+
+    .section {
+        margin: 0;
+        padding: 0;
+        --ion-card-background: #000;
+
+        ion-card-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            ion-card-title {
+                font-size: 22pt;
+                font-weight: bold;
+                font-style: italic;
+                text-shadow: 1px 1px .5em $lavender;
+            }
+        }
+    }
 }
 
 .space {

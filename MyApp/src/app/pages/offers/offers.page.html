@@ -1,7 +1,13 @@
 <ion-content [fullscreen]="true" class="content"> 
   <app-space-background class="space"></app-space-background>
   <ion-grid class="offers">
-    <app-banner-carousel></app-banner-carousel>
+    <ion-card id="discounts" class="section">
+      <ion-card-header><ion-card-title>DESCUENTOS</ion-card-title></ion-card-header>
+      <app-banner-carousel></app-banner-carousel>
+    </ion-card>
+    <ion-card id="points" class="section">
+      <ion-card-header><ion-card-title>PUNTOS</ion-card-title></ion-card-header>
+    </ion-card>  
   </ion-grid>
 </ion-content>
 
