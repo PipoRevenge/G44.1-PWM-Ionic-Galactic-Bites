@@ -8,6 +8,7 @@ import { HomePage } from './home.page';
 import { FooterModule } from 'src/app/components/footer/footer.module';
 import { SpaceBackgroundModule } from 'src/app/components/space-background/space-background.module';
 import { BannerModule } from 'src/app/components/banner/banner.module';
+import { PageSectionModule } from 'src/app/components/page-section/page-section.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { BannerModule } from 'src/app/components/banner/banner.module';
     HomePageRoutingModule,
     FooterModule,
     SpaceBackgroundModule,
-    BannerModule
+    BannerModule,
+    PageSectionModule
   ],
   declarations: [HomePage]
 })

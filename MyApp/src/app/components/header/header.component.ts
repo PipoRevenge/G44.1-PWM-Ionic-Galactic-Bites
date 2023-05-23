@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
       if (event instanceof NavigationEnd) path = event.urlAfterRedirects; 
       if (path == '/') this.home = { color: '#39DE9A' };
       else if (path == '/menu') this.menu = { color: '#39DE9A' };
-      else if (path == '/offers') this.offers = { color: '#39DE9A' };
+      else if (path == '/offers' || path == '/offers#points' || path == '/offers#discount') this.offers = { color: '#39DE9A' };
       else if (path == '/favs') this.favs = { color: '#39DE9A' };
       else if (path == '/shopping-cart') this.cart = { color: '#39DE9A' };
 

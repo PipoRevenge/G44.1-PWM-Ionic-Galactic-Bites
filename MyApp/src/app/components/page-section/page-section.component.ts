@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,12 +9,13 @@ import { Router } from '@angular/router';
 export class PageSectionComponent {
 
   @Input() name: string = '';
+  @Input() reverse: boolean = false;
   @Input() img: string = '';
   @Input() fragment: string = '';
 
   constructor(private router: Router) {}
 
-  goToPage() {
+  navigateToPageAnchor() {
     this.router.navigate(['/offers'], { fragment: this.fragment });
   }  
 }

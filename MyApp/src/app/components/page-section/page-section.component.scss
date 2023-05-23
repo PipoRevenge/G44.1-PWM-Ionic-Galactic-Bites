@@ -1,0 +1,41 @@
+@import '../../../theme/mixins.scss';
+@import '../../../theme/variables.scss';
+
+.section {
+    display: flex;
+    box-sizing: border-box;
+    background-color: $black;
+    font-family: $raleway;
+
+    ion-img {
+        display: flex;
+        background-color: $white;
+        overflow: hidden;
+        width: 40%;
+        height: 75%;
+        margin: 5%;
+        object-fit: cover;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        color: $white;
+        text-transform: uppercase;
+        text-align: center;
+        width: 30%;
+        margin: 10%;
+
+        h2 { 
+            margin: 0 0 10% 0; 
+            font-size: 5vw;
+            font-weight: bold;
+            font-family: $raleway;
+        }
+        .btn { @include cyber-btn(8em, 2em, 3vw, $black, $turquoise, $raleway); }
+    }
+}
