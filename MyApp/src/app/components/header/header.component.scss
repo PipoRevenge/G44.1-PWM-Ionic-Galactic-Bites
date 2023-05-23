@@ -40,27 +40,20 @@
             font-size: 12pt;
 
             &:hover {
-                color: rgba($turquoise, .7);
+                color: rgba($emerald, .7);
             }
         }
     }
-    
-    #shopping-cart {
-        cursor: pointer;
-        width: 20px;
-        height: 20px;  
-        margin-right: 1em; 
         
-        &:hover { transform: scale(1.1); }
-        &:active { transform: scale(1); }
-    }
-        
-    #star {
+    .i {
         cursor: pointer;
         font-size: 15pt;
-        margin-right: .5em;
+        margin-right: 1em;
 
-        &:hover { transform: scale(1.1); }
+        &:hover { 
+            transform: scale(1.1); 
+            color: rgba($emerald, .7);
+        }
         &:active { transform: scale(1); }
     }
 

@@ -7,6 +7,7 @@ import { MenuPageRoutingModule } from './menu-routing.module';
 import { MenuPage } from './menu.page';
 import { FooterModule } from 'src/app/components/footer/footer.module';
 import { SpaceBackgroundModule } from 'src/app/components/space-background/space-background.module';
+import { CategoryCarouselModule } from 'src/app/components/category-carousel/category-carousel.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SpaceBackgroundModule } from 'src/app/components/space-background/space
     IonicModule,
     MenuPageRoutingModule,
     FooterModule,
-    SpaceBackgroundModule
+    SpaceBackgroundModule,
+    CategoryCarouselModule
   ],
   declarations: [MenuPage]
 })

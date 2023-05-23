@@ -14,31 +14,35 @@ export class CategoryCarouselComponent implements OnInit {
   carouselItems: string[] = [];
   position: number = 0;
 
+  option = {
+
+  }
+
   constructor() {
     this.carouselItems = this.categories.slice(0, 3);
   }
 
   ngOnInit(): void {
-    this.updateCarouselItems();
+    // this.updateCarouselItems();
   }
 
-  onClick(category: string): void {
-    this.scroll.emit(category);
-  }
+  // onClick(category: string): void {
+  //   this.scroll.emit(category);
+  // }
 
-  updateCarouselItems() {
-    this.carouselItems = this.categories.slice(this.position, this.position+3);
-  }
+  // updateCarouselItems() {
+  //   this.carouselItems = this.categories.slice(this.position, this.position+3);
+  // }
 
-  moveLeft(): void {
-    if (this.position == 0) return;
-    this.position -= 1; 
-    this.updateCarouselItems();
-  }
+  // moveLeft(): void {
+  //   if (this.position == 0) return;
+  //   this.position -= 1; 
+  //   this.updateCarouselItems();
+  // }
 
-  moveRight(): void {
-    if (this.position == this.categories.length - 3) return;
-    this.position += 1;
-    this.updateCarouselItems();
-  }
+  // moveRight(): void {
+  //   if (this.position == this.categories.length - 3) return;
+  //   this.position += 1;
+  //   this.updateCarouselItems();
+  // }
 }

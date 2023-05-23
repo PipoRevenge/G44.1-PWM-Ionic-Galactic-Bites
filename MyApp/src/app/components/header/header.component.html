@@ -5,17 +5,15 @@
         src="../../../assets/icon/planet.svg"
       ></ion-img>
       <ion-list class="list">
-        <ion-item class="item" lines="none" [style]="homeStyle" (click)="navigateTo('/')">INICIO</ion-item>
-        <ion-item class="item" lines="none" [style]="menuStyle" (click)="navigateTo('/menu')">MENÚ</ion-item>
-        <ion-item class="item" lines="none" [style]="offersStyle" (click)="navigateTo('/offers')">OFERTAS</ion-item>
+        <ion-item class="item" lines="none" [style]="home" (click)="navigateTo('/')">INICIO</ion-item>
+        <ion-item class="item" lines="none" [style]="menu" (click)="navigateTo('/menu')">MENÚ</ion-item>
+        <ion-item class="item" lines="none" [style]="offers" (click)="navigateTo('/offers')">OFERTAS</ion-item>
       </ion-list>
     </ion-row>
 
     <ion-row class="align-items-center">
-      <ion-img id="shopping-cart"
-        src="../../../assets/icon/shopping-cart.svg"
-      ></ion-img>
-      <ion-icon id="star" name="star-outline"></ion-icon>
+      <ion-icon id="shopping-cart" class="i" name="cart-outline" [style]="cart" (click)="navigateTo('/shopping-cart')"></ion-icon>
+      <ion-icon id="star" class="i" name="star-outline" [style]="favs" (click)="navigateTo('/favs')"></ion-icon>
       <ion-row class="align-items-center">
         <ion-grid>
           <ion-col class="points">
@@ -23,7 +21,7 @@
             <ion-badge class="count">{{ points }}</ion-badge>
           </ion-col>  
         </ion-grid>
-        <ion-img id="user-pic"
+        <ion-img id="user-pic" (click)="navigateTo('/profile')"
           src="../../../assets/icon/user.png"
         ></ion-img>
       </ion-row>

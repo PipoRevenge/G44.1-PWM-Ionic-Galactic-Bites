@@ -21,7 +21,7 @@ import { SqliteDataService } from './services/database/sqlite-data.service';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule, 
+    AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)), 
     provideAuth(() => getAuth()), 
     provideDatabase(() => getDatabase()), 

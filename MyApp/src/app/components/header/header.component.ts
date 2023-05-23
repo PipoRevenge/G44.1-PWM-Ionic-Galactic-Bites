@@ -9,15 +9,15 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  homeStyle: any = { color: '' };
-  menuStyle: any = { color: '' };
-  offersStyle: any = { color: '' };
+  home: any = { color: '' };
+  menu: any = { color: '' };
+  offers: any = { color: '' };
+  favs: any = { color: '' };
+  cart: any = { color: '' };
 
-  // userPic: string = "../../../assets/icons/user.png";
   points: number = 0;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
-  // constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     this.updateNav();    
@@ -25,9 +25,11 @@ export class HeaderComponent implements OnInit {
   }
 
   private resetNav() {
-    this.homeStyle = { color: '' };
-    this.menuStyle = { color: '' };
-    this.offersStyle = { color: '' };
+    this.home = { color: '' };
+    this.menu = { color: '' };
+    this.offers = { color: '' };
+    this.favs = { color: '' };
+    this.cart = { color: '' };
   }
 
   private updateNav() {
@@ -35,9 +37,12 @@ export class HeaderComponent implements OnInit {
       this.resetNav();
       let path: string = this.router.url;
       if (event instanceof NavigationEnd) path = event.urlAfterRedirects; 
-      if (path == '/') this.homeStyle = { color: '#39DE9A' };
-      else if (path == '/menu') this.menuStyle = { color: '#39DE9A' };
-      else if (path == '/offers') this.offersStyle = { color: '#39DE9A' };
+      if (path == '/') this.home = { color: '#39DE9A' };
+      else if (path == '/menu') this.menu = { color: '#39DE9A' };
+      else if (path == '/offers') this.offers = { color: '#39DE9A' };
+      else if (path == '/favs') this.favs = { color: '#39DE9A' };
+      else if (path == '/shopping-cart') this.cart = { color: '#39DE9A' };
+
     });
   }
 
@@ -51,13 +56,5 @@ export class HeaderComponent implements OnInit {
   //         this.userPic = "../../../assets/profile.jpg";
   //         this.points = this.userService.getUserPoints();
   //     } else this.userPic =  "../../../assets/icons/user.png";
-  // }
-
-  // shoppingCart() {
-  //     this.router.navigate(['/shopping-cart']);
-  // }
-
-  // login() {
-  //     this.router.navigate(['/profile']);
   // }
 }
