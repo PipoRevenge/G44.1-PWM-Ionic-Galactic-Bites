@@ -26,6 +26,12 @@
                 text-shadow: 1px 1px .5em $lavender;
             }
         }
+
+        ion-img {
+            width: 100%;
+            height: 30vw;
+            object-fit: cover;
+        }
     }
 }
 
