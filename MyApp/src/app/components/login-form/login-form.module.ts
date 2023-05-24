@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     IonicModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
   ],
   exports: [LoginFormComponent]
 })
