@@ -10,6 +10,7 @@ import { SpaceBackgroundModule } from 'src/app/components/space-background/space
 import { BannerModule } from 'src/app/components/banner/banner.module';
 import { PageSectionModule } from 'src/app/components/page-section/page-section.module';
 import { HeaderModule } from 'src/app/components/header/header.module';
+import { SidebarModule } from 'src/app/components/sidebar/sidebar.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { HeaderModule } from 'src/app/components/header/header.module';
     SpaceBackgroundModule,
     BannerModule,
     PageSectionModule,
-    HeaderModule
+    HeaderModule,
+    SidebarModule
   ],
   declarations: [HomePage]
 })

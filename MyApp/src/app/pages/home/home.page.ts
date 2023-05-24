@@ -7,6 +7,7 @@ import { HeaderComponent } from '../../components/header/header.component';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  name: string = 'home-content';
 
   constructor() { }
 

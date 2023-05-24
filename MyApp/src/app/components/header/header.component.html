@@ -1,30 +1,23 @@
-<ion-toolbar class="header">
-  <ion-row class="align-items-center justify-content-between">
+<ion-toolbar class="header align-items-center justify-content-between">
+  <ion-buttons slot="start">
+    <ion-menu-button>
+      <ion-icon class="menu" name="menu"></ion-icon>
+    </ion-menu-button>
+  </ion-buttons>
+  <ion-buttons slot="secondary">
+    <ion-img id="logo" (click)="navigateTo('/')"
+      src="../../../assets/icon/planet.svg"
+    ></ion-img>
+  </ion-buttons>
+  <ion-buttons slot="end">
     <ion-row class="align-items-center">
-      <!-- <ion-img id="logo"
-        src="../../../assets/icon/planet.svg"
-      ></ion-img> -->
-      <ion-list class="list">
-        <ion-item class="item" lines="none" [style]="home" (click)="navigateTo('/')">INICIO</ion-item>
-        <ion-item class="item" lines="none" [style]="menu" (click)="navigateTo('/menu')">MENÚ</ion-item>
-        <ion-item class="item" lines="none" [style]="offers" (click)="navigateTo('/offers')">OFERTAS</ion-item>
-      </ion-list>
-    </ion-row>
-
-    <!-- <ion-row class="align-items-center">
       <ion-icon id="shopping-cart" class="i" name="cart-outline" [style]="cart" (click)="navigateTo('/shopping-cart')"></ion-icon>
       <ion-icon id="star" class="i" name="star-outline" [style]="favs" (click)="navigateTo('/favs')"></ion-icon>
       <ion-row class="align-items-center">
-        <ion-grid>
-          <ion-col class="points">
-            <ion-label class="label">PUNTOS</ion-label>
-            <ion-badge class="count">{{ points }}</ion-badge>
-          </ion-col>  
-        </ion-grid>
         <ion-img id="user-pic" (click)="navigateTo('/profile')"
           src="../../../assets/icon/user.png"
         ></ion-img>
       </ion-row>
-    </ion-row> -->
-  </ion-row>
+    </ion-row>
+  </ion-buttons>
 </ion-toolbar>

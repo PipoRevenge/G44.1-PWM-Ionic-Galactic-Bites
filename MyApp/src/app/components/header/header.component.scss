@@ -12,37 +12,17 @@
     height: 50px;
     width: 100%;
     background-color: $black;
-
-    padding: 10px;
     top: 0;
 
-    #logo {
-        width: 35px;
-        height: 35px;
-        margin: 0 15px;
-    } 
-
-    .list {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        --ion-item-background: $black;
-        margin-left: 1em;
-
-        .item {
-            background-color: $black;
-            --ion-item-background: $black;
-            font-weight: bold;
-            cursor: pointer;
-            width: 7em;
-            text-align: center;
-            font-size: 12pt;
-
-            &:hover {
-                color: rgba($emerald, .7);
-            }
-        }
+    .menu {
+        color: $lavender;
     }
+
+    #logo {
+        width: 30px;
+        height: 30px;
+        margin-left: 1em;
+    } 
         
     .i {
         cursor: pointer;
@@ -54,35 +34,6 @@
             color: rgba($emerald, .7);
         }
         &:active { transform: scale(1); }
-    }
-
-    .points {
-        display: flex;
-        flex-direction: column;
-        margin-right: 1em;
-
-        .label {
-            color: $white;
-            text-transform: uppercase;
-            font-style: italic;
-            font-size: 8pt;
-            margin: 0 0 1px 0;
-            font-weight: bold;
-        }   
-
-        .count {
-            display: flex;
-            align-items: center;
-            background-color: $white;
-            font-size: 9pt;
-            width: 5em;
-            height: 1.1em;
-            color: $black;
-            font-weight: bold;
-            pointer-events: none;
-            padding: 2px 5px;
-            text-align: start;
-        }        
     }
 
     #user-pic {

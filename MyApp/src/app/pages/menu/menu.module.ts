@@ -11,6 +11,7 @@ import { CategoryCarouselModule } from 'src/app/components/category-carousel/cat
 import { ProductModule } from 'src/app/components/product/product.module';
 import { ProductDetailPopupModule } from 'src/app/components/product-detail-popup/product-detail-popup.module';
 import { HeaderModule } from 'src/app/components/header/header.module';
+import { SidebarModule } from 'src/app/components/sidebar/sidebar.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { HeaderModule } from 'src/app/components/header/header.module';
     CategoryCarouselModule,
     ProductModule,
     ProductDetailPopupModule,
-    HeaderModule
+    HeaderModule,
+    SidebarModule
   ],
   declarations: [MenuPage]
 })

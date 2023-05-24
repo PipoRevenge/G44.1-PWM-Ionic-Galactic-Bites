@@ -13,6 +13,7 @@ import { BannerCarouselModule } from 'src/app/components/banner-carousel/banner-
 import { ProductModule } from 'src/app/components/product/product.module';
 import { HeaderModule } from 'src/app/components/header/header.module';
 import { ProductDetailPopupModule } from 'src/app/components/product-detail-popup/product-detail-popup.module';
+import { SidebarModule } from 'src/app/components/sidebar/sidebar.module';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { ProductDetailPopupModule } from 'src/app/components/product-detail-popu
     BannerCarouselModule,
     ProductModule,
     HeaderModule,
-    ProductDetailPopupModule
+    ProductDetailPopupModule,
+    SidebarModule
   ],
   declarations: [OffersPage]
 })

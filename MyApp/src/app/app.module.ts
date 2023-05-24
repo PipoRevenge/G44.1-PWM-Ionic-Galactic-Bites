@@ -15,6 +15,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HeaderComponent } from './components/header/header.component';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { SqliteDataService } from './services/database/sqlite-data.service';
+import { SidebarModule } from './components/sidebar/sidebar.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { SqliteDataService } from './services/database/sqlite-data.service';
     provideDatabase(() => getDatabase()), 
     provideFirestore(() => getFirestore()), 
     provideStorage(() => getStorage()),
+    SidebarModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

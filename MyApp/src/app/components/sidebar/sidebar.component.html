@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title [size]="'large'" class="align-items-center justify-content-center">Galactic Bites</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-list class="list">
+    <ion-item class="item" [style]="home" (click)="navigateTo('/')">INICIO</ion-item>
+    <ion-item class="item" [style]="menu" (click)="navigateTo('/menu')">MENÚ</ion-item>
+    <ion-item class="item" [style]="offers" (click)="navigateTo('/offers')">OFERTAS</ion-item>
+  </ion-list>
+</ion-content>
