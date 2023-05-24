@@ -16,7 +16,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { SqliteDataService } from './services/database/sqlite-data.service';
 import { SidebarModule } from './components/sidebar/sidebar.module';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -28,9 +29,11 @@ import { SidebarModule } from './components/sidebar/sidebar.module';
     provideDatabase(() => getDatabase()), 
     provideFirestore(() => getFirestore()), 
     provideStorage(() => getStorage()),
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
     SidebarModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, SQLite],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

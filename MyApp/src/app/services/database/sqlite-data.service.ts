@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { FirebaseDataService } from './firebase-data.service';
 import { Product } from 'src/app/models/product';
-
+import { Platform } from '@ionic/angular';
 export interface User0 {
     id: string;
     name: string;
@@ -20,34 +20,60 @@ export interface User0 {
 export class SqliteDataService {
    private db: SQLiteObject;
 
-  constructor(private sqlite: SQLite) { }
+  constructor(private sqlite: SQLite, private platform: Platform) { }
 
   async initDatabase() {
-    try {
-      this.db = await this.sqlite.create({
-        name: 'mydatabase.db',
-        location: 'default'
-      });
+      this.sqlite.create({
+          name: 'data.db',
+          location: 'default'
+        })
+          .then((db: SQLiteObject) => {
 
-      // Crear tabla de productos
-      await this.db.executeSql(`
-        CREATE TABLE IF NOT EXISTS products (
-          id INTEGER PRIMARY KEY,
-          category TEXT,
-          description TEXT,
-          discount REAL,
-          hasPoints INTEGER,
-          image TEXT,
-          name TEXT,
-          price REAL
-        )
-      `, []);
 
-      console.log('Base de datos inicializada');
-    } catch (error) {
-      console.error('Error al inicializar la base de datos', error);
+            db.executeSql('create table danceMoves(name VARCHAR(32))', [])
+              .then(() => console.log('Executed SQL'))
+              .catch(e => console.log(e));
+
+
+          })
+          .catch(e => console.log(e));
+
+
+
+
+
+  try {
+    await this.platform.ready();
+
+    const dbInstance = await this.sqlite.create({
+      name: 'mydatabase.db',
+      location: 'default'
+    });
+
+    if (!dbInstance) {
+      throw new Error('Failed to create database connection');
     }
+
+    this.db = dbInstance;
+
+    await this.db.executeSql(`
+      CREATE TABLE IF NOT EXISTS products (
+        id INTEGER PRIMARY KEY,
+        category TEXT,
+        description TEXT,
+        discount REAL,
+        hasPoints INTEGER,
+        image TEXT,
+        name TEXT,
+        price REAL
+      )
+    `, []);
+
+    console.log('Base de datos inicializada');
+  } catch (error) {
+    console.error('Error al inicializar la base de datos', error);
   }
+}
 async addFavProduct(producto:Product) {
   try {
     const data = [producto.category, producto.description, producto.discount, producto.hasPoints, producto.image, producto.name, producto.price];

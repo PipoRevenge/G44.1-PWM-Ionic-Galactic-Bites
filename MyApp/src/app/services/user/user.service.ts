@@ -15,7 +15,9 @@ import { FavProductsService } from '../favProducts/fav-products.service';
 export class UserService {
 
 
-  constructor(private firebaseAuthService: FirebaseAuthService, private shoppingCartService: ShoppingCartService,  private favProductsServices: FavProductsService) {}
+  constructor(private firebaseAuthService: FirebaseAuthService, private shoppingCartService: ShoppingCartService, private favProductsServices: FavProductsService) {
+    
+  }
 
   user: User | null = null;
 
@@ -40,7 +42,7 @@ export class UserService {
     
     try {
       await this.setUpCarritoWey();
-      await this.favProductsServices.setAllFavProduct(this.user.favProducts);
+      await this.setUpFavoritosWey();
       try {
         await this.updateShoppingCart();
         return true;
@@ -57,6 +59,9 @@ export class UserService {
     return false;
   }
 }
+  async setUpFavoritosWey(): Promise<void> {
+     return this.favProductsServices.setAllFavProduct(this.user.favProducts);
+  }
 
   async signup(name: string, email: string, password: string, phone: string): Promise<boolean> {  
     return await this.firebaseAuthService.signUp({ email, password, name, phone })
@@ -116,7 +121,7 @@ export class UserService {
   async updateFavProducts(): Promise<void> {
     this.favProductsServices.FavProducts$.subscribe(async (value) => {
       this.user.favProducts = value;
-      //await this.sqliteDataServices.addFavProduct().then(() => { return; }); 
+      await this.firebaseAuthService.saveUser(this.user).then(() => { return; }); 
       return;
     })
   }
