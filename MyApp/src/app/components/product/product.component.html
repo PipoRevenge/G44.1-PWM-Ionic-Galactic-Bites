@@ -1,4 +1,4 @@
-<ion-card class="container" *ngIf="product" (click)="onDetails()">
+<ion-card class="container" *ngIf="product">
   <ion-card-content class="product">
     <ion-img [src]="image"></ion-img>
     <ion-card-header class="header"><ion-card-title class="title">{{ product.name }}</ion-card-title></ion-card-header>

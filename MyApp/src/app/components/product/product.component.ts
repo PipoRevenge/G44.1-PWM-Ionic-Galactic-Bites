@@ -12,19 +12,8 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class ProductComponent implements OnInit {
 
   @Input() productId: string = '';
-  @Output() details: EventEmitter<Product> = new EventEmitter<Product>();
-
   image: string = '../../assets/placeholder.png';
-  product: Product | null = { 
-    id: '2', 
-    image: '../../../assets/placeholder.png',
-    name: 'borguesa',
-    description: 'borguesa rica',
-    price: 12,
-    discount: 60,
-    category: 'principales',
-    hasPoints: false
-  };
+  product: Product | null;
   discount: number = 0;
   points: number = 0;
 
@@ -43,18 +32,11 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  onDetails() {
-    if (!this.product) return;
-    this.details.emit(this.product);
-  }
-
   showDiscount(): boolean {
-     return this.productService.isOnDiscount(this.productId);
-    return true;
+    return this.productService.isOnDiscount(this.productId);
   }
 
   showPoints(): boolean {
     return this.productService.isOnPoints(this.productId);
-    //return false;
   }
 }

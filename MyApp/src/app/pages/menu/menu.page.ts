@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ProductDetailPopupComponent } from 'src/app/components/product-detail-popup/product-detail-popup.component';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,35 +10,33 @@ import { ProductDetailPopupComponent } from 'src/app/components/product-detail-p
 })
 export class MenuPage implements OnInit {
 
-  products: number[] = [1, 2, 3, 4, 5]
+  products: string[] = [];
+  categories: string[] = [];
   showProductModal: boolean = false;  
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private productService: ProductService) { }
 
   ngOnInit() {
+    this.categories = this.productService.getCategories();
+    this.loadProductsByCategory(0);
   }
 
-  async openProductModal() {
+  async openProductModal(productId: string) {
     const modal = await this.modalController.create({
       component: ProductDetailPopupComponent,
       componentProps: {
-        product: { 
-          id: '1', 
-          image: '../../../assets/placeholder.png',
-          name: 'borguesa',
-          description: 'borguesa rica',
-          price: 12,
-          discount: 60,
-          category: 'principales',
-          hasPoints: false
-        }
+        productId: productId
       }
     });
     modal.present();
   }
 
-  // setProductModal(value: boolean) {
-  //   this.showProductModal = value;
-  //   console.log(value);
-  // }
+  loadProductsByCategory(i: number) {
+    console.log(this.categories);
+    if (this.categories.length > i) this.products = this.productService.getProductsIdByCategory(this.categories[i]);
+  }
+
+  show(itemId: string): boolean {
+    return !this.productService.isOnPoints(itemId);
+  }
 }

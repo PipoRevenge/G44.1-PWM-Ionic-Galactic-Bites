@@ -56,5 +56,4 @@ export class CartItemComponent  implements OnInit {
     if (!this.item) return;
     this.shoppingCartService.removeItem(this.item.id);
   }
-  
 }

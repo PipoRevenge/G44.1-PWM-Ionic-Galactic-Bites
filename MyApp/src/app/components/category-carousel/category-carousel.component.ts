@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-// import { Swiper } from 'swiper/types';
+import { SwiperContainer } from 'swiper/element';
+import { Swiper } from 'swiper/types';
 
 @Component({
   selector: 'app-category-carousel',
@@ -7,13 +8,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./category-carousel.component.scss']
 })
 export class CategoryCarouselComponent {
-  @Input() categories: string[] = ['principales', 'complementos', 'bebidas', 'postres'];
-  @Output() changed: EventEmitter<string> = new EventEmitter<string>();
-
-  // constructor(private swiper: Swiper) {}
+  @Input() categories: string[] = [];
+  @Output() changed: EventEmitter<number> = new EventEmitter<number>();
+  index: number = 0;
 
   swiperSlideChanged(e: any) {
-    // console.log('changed: ', this.categories[this.swiper.activeIndex]);
-    this.changed.emit(e);
+    if (e.activeIndex && this.index != e.activeIndex) {
+      console.log('changed: ', e.activeIndex);
+      this.changed.emit(e.activeIndex);
+      this.index = e.activeIndex;
+    }
   }
 }

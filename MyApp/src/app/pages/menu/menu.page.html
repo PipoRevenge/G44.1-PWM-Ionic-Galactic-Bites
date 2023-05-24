@@ -4,10 +4,10 @@
 <ion-content [fullscreen]="true" class="content"> 
   <app-space-background class="space"></app-space-background>
   <ion-grid class="menu">
-    <app-category-carousel></app-category-carousel>
+    <app-category-carousel [categories]="categories"></app-category-carousel>
     <ion-row class="wrapper ion-flex-wrap ion-justify-content-start">
         <ng-container *ngFor="let product of products">
-          <app-product class="product" (click)="openProductModal()"></app-product>
+          <app-product class="product" [productId]="product" (click)="openProductModal(product)"></app-product>
         </ng-container>
     </ion-row>
   </ion-grid>

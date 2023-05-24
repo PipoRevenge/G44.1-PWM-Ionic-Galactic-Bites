@@ -4,12 +4,11 @@ import { IonicModule } from '@ionic/angular';
 import { CategoryCarouselComponent } from './category-carousel.component';
 
 
-
 @NgModule({
   declarations: [CategoryCarouselComponent],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
   ],
   exports: [CategoryCarouselComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

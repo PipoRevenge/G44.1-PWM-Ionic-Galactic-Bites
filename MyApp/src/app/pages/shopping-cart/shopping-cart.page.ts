@@ -12,7 +12,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-car
 })
 export class ShoppingCartPage implements OnInit {
 
-  showe: Observable<boolean>;
+  // showe: Observable<boolean>;
 
   constructor(private router: Router, private shoppingCartService: ShoppingCartService, private itemService: ProductService) {}
 
@@ -21,8 +21,7 @@ export class ShoppingCartPage implements OnInit {
   }
 
   show(): boolean {
-    // return this.shoppingCartService.isShoppingCart();
-    return false;
+    return this.shoppingCartService.isShoppingCart();
   }
 
   getItemsKeys(): string[] {
