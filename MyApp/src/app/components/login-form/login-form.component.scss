@@ -35,12 +35,13 @@
         ion-input {
             background-color: $black;
             background: linear-gradient($black, $black) padding-box, linear-gradient(to right, $turquoise, $lavender) border-box;
-            border: 2px solid transparent;
-            border-radius: 50px;
-            margin-bottom: 10%;
+            border-bottom: 1px solid transparent;
+            margin-bottom: 8%;
+            height: 1.3em;
             width: 100%;
             --padding-start: 5%;
             font-weight: bold;
+            font-size: 12pt;
 
             input::placeholder {
                 --padding-start: 5%;

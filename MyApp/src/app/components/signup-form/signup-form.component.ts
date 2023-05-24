@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PasswordValidator } from 'src/app/validators/password.validator';
@@ -13,17 +13,18 @@ import Swal from 'sweetalert2';
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.scss']
 })
-export class SignupFormComponent implements Form {
+export class SignupFormComponent implements AfterViewInit {
 	signupForm: FormGroup;
 
-	@ViewChildren('input') inputs!: QueryList<ElementRef>;
-	@ViewChild('emailInput') emailInput!: ElementRef;
-	@ViewChild('confirmPasswordInput') confirmPasswordInput!: ElementRef;
+	name: HTMLElement;
+	email: HTMLElement;
+	tel: HTMLElement;
+	password: HTMLElement;
+	confirmPassword: HTMLElement;
 
-	// constructor(private router: Router, private fb: FormBuilder, private userService: UserService) {
-	constructor(private router: Router, private fb: FormBuilder) {
+	constructor(private router: Router, private fb: FormBuilder, private userService: UserService) {
 		this.signupForm = this.fb.group ({
-			name: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(40)]],
+			name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
 			email: ['', [Validators.required, Validators.email]],
 			tel: ['', [Validators.required, PhoneValidator.validPhoneNumber()]],
 			password: ['', [Validators.required, PasswordValidator.strong()]],
@@ -31,64 +32,50 @@ export class SignupFormComponent implements Form {
 		});
 	}
 
-	onError(input: ElementRef): void {
-		input.nativeElement.style.boxShadow = '0px 0px 10px rgb(255, 70, 92)';
+	ngAfterViewInit(): void {
+		this.name = document.getElementById('name');
+		this.email = document.getElementById('email');
+		this.tel = document.getElementById('tel');
+		this.password = document.getElementById('password');
+		this.confirmPassword = document.getElementById('confirm-password');
 	}
 
 	checkErrors(): boolean {
 		let errors: boolean = false;
 
-		this.inputs.forEach((input, index) => {
-			const control = this.signupForm.controls[Object.keys(this.signupForm.controls)[index]];
+		const controlName = this.signupForm.controls[Object.keys(this.signupForm.controls)[0]];
+		const controlEmail = this.signupForm.controls[Object.keys(this.signupForm.controls)[1]];
+		const controlTel = this.signupForm.controls[Object.keys(this.signupForm.controls)[2]];
+		const controlPassword = this.signupForm.controls[Object.keys(this.signupForm.controls)[3]];
+		const controlConfirmPassword = this.signupForm.controls[Object.keys(this.signupForm.controls)[4]];
 
-			if (control.errors) {
-				this.onError(input);
-				errors = true;
-			}
-		});
+		if (controlName.errors || controlEmail.errors || controlTel.errors || controlPassword.errors || controlConfirmPassword.errors) errors = true;
 		return errors;
-	}
-
-	resetErrors(): void {
-		this.inputs.forEach((input) => {
-			input.nativeElement.style.boxShadow = 'none';
-		});
 	}
 
 	checkPasswords(): boolean {
 		let match: boolean = false;
 
 		if (this.signupForm.get('password')?.value == this.signupForm.get('confirmPassword')?.value) match = true;
-		else this.onError(this.confirmPasswordInput);
 
 		return match;
 	}
 	
-	private async showAlert(title: string, text: string, icon: 'success' | 'error') {
-    	await Swal.fire(title, text, icon);
- 	}
-	
 	onSubmit() { 
 		console.log(this.signupForm.value);
-
-		this.resetErrors();
 		let match: boolean = this.checkPasswords();
-		if (!this.checkErrors() && match) {
-			let name: string = this.signupForm.value.name; 
-			let email: string = this.signupForm.value.email;
-			let password: string = this.signupForm.value.password;
-			let tel: string = this.signupForm.value.tel;
-			console.log('form:', name, email, password, tel);
-			
-			// this.userService.signup(name, email, password, tel).then((value: boolean) => {
-			// 	if(value) {
-			// 		this.showAlert('Registrado con éxito', 'Te has registrado correctamente', 'success');
-			// 		this.router.navigate(['profile']);
-			// 	} else {
-			// 		this.showAlert('Error', 'No se pudo registrar, por favor intenta de nuevo', 'error');
-			// 		this.onError(this.emailInput);
-			// 	}
-			// 	});
-		}
+		if (this.checkErrors() || !match) return;
+		
+		let name: string = this.signupForm.value.name; 
+		let email: string = this.signupForm.value.email;
+		let password: string = this.signupForm.value.password;
+		let tel: string = this.signupForm.value.tel;
+		
+		console.log('form:', name, email, password, tel);
+		this.userService.signup(name, email, password, tel).then(
+			(value: boolean) => {
+				if (value) this.router.navigate(['/profile']);
+			}
+		);
 	}	
 }
