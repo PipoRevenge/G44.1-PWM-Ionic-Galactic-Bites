@@ -13,7 +13,8 @@ export class FavProductsService {
   private FavProductsSubject: BehaviorSubject<string[]> = new BehaviorSubject([]);
   FavProducts$: Observable<string[]> = this.FavProductsSubject.asObservable();
 
-  constructor(private itemService: ProductService, private productService:ProductService, private sqliteDataServices:SqliteDataService) {  this.sqliteDataServices.initDatabase();}
+  // constructor(private itemService: ProductService, private productService:ProductService, private sqliteDataServices:SqliteDataService) {  this.sqliteDataServices.initDatabase();}
+  constructor(private itemService: ProductService, private productService:ProductService, private sqliteDataServices:SqliteDataService) { }
 
   deleteItem(itemId: string): void {
     const currentValue = this.FavProductsSubject.getValue();
