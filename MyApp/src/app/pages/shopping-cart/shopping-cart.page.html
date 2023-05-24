@@ -2,8 +2,23 @@
   <app-header></app-header>
 </ion-header>
 <ion-content [fullscreen]="true" class="content"> 
-  <ion-grid class="cart">
+  <ion-grid class="cart ion-padding">
     <app-space-background class="space"></app-space-background>
+    <div class="nothing-container" *ngIf="!show()">
+      <p>¡El carrito de compra está vacío!</p>
+    </div>
+    <div class="shopping-cart-container" *ngIf="show()">
+        <ng-container>
+            <ng-container *ngFor="let itemId of getItemsKeys()">
+                <app-cart-item [item]="getItemById(itemId)"></app-cart-item>
+            </ng-container>
+        </ng-container>
+        <div class="bottom">
+            <ion-label class="price-tag">PRECIO TOTAL: <span class="price">{{ getTotalPrice() }}</span> €</ion-label>
+            <ion-label class="price-tag">PUNTOS: <span class="price">{{ getTotalPoints() }}</span></ion-label>
+            <button class="btn cyber-btn" (click)="onBuy()">COMPRAR</button>
+        </div>
+    </div>
   </ion-grid>
 </ion-content>
 <ion-footer class="footer">

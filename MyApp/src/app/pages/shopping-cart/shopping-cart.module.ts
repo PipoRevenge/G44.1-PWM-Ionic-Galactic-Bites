@@ -11,6 +11,7 @@ import { HeaderModule } from 'src/app/components/header/header.module';
 import { SidebarModule } from 'src/app/components/sidebar/sidebar.module';
 import { FooterModule } from 'src/app/components/footer/footer.module';
 import { SpaceBackgroundModule } from 'src/app/components/space-background/space-background.module';
+import { CartItemComponent } from 'src/app/components/cart-item/cart-item.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,6 @@ import { SpaceBackgroundModule } from 'src/app/components/space-background/space
     FooterModule,
     SpaceBackgroundModule
   ],
-  declarations: [ShoppingCartPage]
+  declarations: [ShoppingCartPage, CartItemComponent]
 })
 export class ShoppingCartPageModule {}

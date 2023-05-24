@@ -1,0 +1,66 @@
+@import '../../../theme/variables.scss';
+@import '../../../theme/mixins.scss';
+
+.cart {
+    background-color: rgba($black, .5);
+    min-height: 100%;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+
+    .nothing-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        p {
+            color: rgba($white, .7);
+            text-align: center;
+            width: 8em;
+            font-size: 12pt;
+            font-weight: bold;
+            font-style: italic;
+            font-family: $raleway;
+        }
+    }
+
+    .shopping-cart-container {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        min-height: 100%;
+        padding: 2%;
+
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin: 2%;
+
+            .price-tag {
+                font-family: $raleway;
+                font-weight: bold;
+                color: $white;
+                font-size: 12pt;
+            }
+
+            .btn {
+                margin-top: 1em;
+                @include cyber-btn(7em, 2em, 12pt, $black, $turquoise, $raleway);
+            }
+        }
+    }
+}
+
+.space {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
