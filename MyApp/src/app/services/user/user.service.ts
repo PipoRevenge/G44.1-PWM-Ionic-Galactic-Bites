@@ -6,6 +6,7 @@ import { ShoppingCartService } from '../shopping-cart/shopping-cart.service';
 import { Observable, from } from 'rxjs';
 import { SqliteDataService } from '../database/sqlite-data.service';
 import { Product } from 'src/app/models/product';
+import { FavProductsService } from '../favProducts/fav-products.service';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ import { Product } from 'src/app/models/product';
 export class UserService {
 
 
-  constructor(private firebaseAuthService: FirebaseAuthService, private shoppingCartService: ShoppingCartService, private sqliteDataServices:SqliteDataService) {}
+  constructor(private firebaseAuthService: FirebaseAuthService, private shoppingCartService: ShoppingCartService,  private favProductsServices: FavProductsService) {}
 
   user: User | null = null;
 
@@ -39,8 +40,9 @@ export class UserService {
     
     try {
       await this.setUpCarritoWey();
+      await this.favProductsServices.setAllFavProduct(this.user.favProducts);
       try {
-        await this.updateData();
+        await this.updateShoppingCart();
         return true;
       } catch (e) {
         console.error('Error updating data', e);
@@ -72,6 +74,7 @@ export class UserService {
   async setUpCarritoWey(): Promise<void> {
     return this.shoppingCartService.setData(this.user.shoppingCart);
   }
+
   async setPoints(newPoints:number):Promise<void> {
     this.user.points += newPoints;
     await this.saveUserData(this.user);
@@ -103,18 +106,26 @@ export class UserService {
   }
 
 
-  async updateData():Promise<void>  {
+  async updateShoppingCart():Promise<void>  {
     this.shoppingCartService.shoppingCart.subscribe(async (value) => {
       this.user.shoppingCart = value;
       await this.firebaseAuthService.saveUser(this.user).then(() => { return; }); 
     }
-     
    )
+  }
+  async updateFavProducts(): Promise<void> {
+    this.favProductsServices.FavProducts$.subscribe(async (value) => {
+      this.user.favProducts = value;
+      //await this.sqliteDataServices.addFavProduct().then(() => { return; }); 
+      return;
+    })
+  }
+  async getAllFavProduts():Promise<Product[]> {
+    return await this.favProductsServices.getfavProducts();
   }
   async saveUserData(userChanges:User): Promise<void> {
     this.user = userChanges;
     await this.firebaseAuthService.saveUser(this.user).then(() => { return; }); 
-  
   }
   async deleteUser(): Promise<void> {
     return await this.firebaseAuthService.deleteUser(this.user).then(()=>{
@@ -124,14 +135,5 @@ export class UserService {
   getUserPoints() {
     return this.user.points;
   }
-  async addFavProduct(product:Product):Promise<void>  {
-    await this.firebaseAuthService.addFavProductAtUser(product.id)
-      .then(async () => {
-      return await this.sqliteDataServices.addFavProduct(product).then(() => {
-        return;
-      })
-    })
-  }
-  
   
 }
