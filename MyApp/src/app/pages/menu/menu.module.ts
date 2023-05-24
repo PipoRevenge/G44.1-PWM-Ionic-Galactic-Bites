@@ -9,6 +9,8 @@ import { FooterModule } from 'src/app/components/footer/footer.module';
 import { SpaceBackgroundModule } from 'src/app/components/space-background/space-background.module';
 import { CategoryCarouselModule } from 'src/app/components/category-carousel/category-carousel.module';
 import { ProductModule } from 'src/app/components/product/product.module';
+import { ProductDetailPopupModule } from 'src/app/components/product-detail-popup/product-detail-popup.module';
+import { HeaderModule } from 'src/app/components/header/header.module';
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import { ProductModule } from 'src/app/components/product/product.module';
     FooterModule,
     SpaceBackgroundModule,
     CategoryCarouselModule,
-    ProductModule
+    ProductModule,
+    ProductDetailPopupModule,
+    HeaderModule
   ],
   declarations: [MenuPage]
 })

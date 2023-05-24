@@ -17,7 +17,7 @@ import { SQLite } from '@ionic-native/sqlite/ngx';
 import { SqliteDataService } from './services/database/sqlite-data.service';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 

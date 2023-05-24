@@ -1,15 +1,17 @@
+<ion-header>
+  <app-header></app-header>
+</ion-header>
 <ion-content [fullscreen]="true" class="content"> 
   <app-space-background class="space"></app-space-background>
   <ion-grid class="menu">
     <app-category-carousel></app-category-carousel>
     <ion-row class="wrapper ion-flex-wrap ion-justify-content-start">
         <ng-container *ngFor="let product of products">
-          <app-product class="product"></app-product>
+          <app-product class="product" (click)="openProductModal()"></app-product>
         </ng-container>
     </ion-row>
   </ion-grid>
 </ion-content>
-
 <ion-footer class="footer">
   <app-footer></app-footer>
 </ion-footer>

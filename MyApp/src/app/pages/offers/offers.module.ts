@@ -11,6 +11,7 @@ import { SpaceBackgroundModule } from 'src/app/components/space-background/space
 import { FooterModule } from 'src/app/components/footer/footer.module';
 import { BannerCarouselModule } from 'src/app/components/banner-carousel/banner-carousel.module';
 import { ProductModule } from 'src/app/components/product/product.module';
+import { HeaderModule } from 'src/app/components/header/header.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { ProductModule } from 'src/app/components/product/product.module';
     SpaceBackgroundModule,
     FooterModule,
     BannerCarouselModule,
-    ProductModule
+    ProductModule,
+    HeaderModule
   ],
   declarations: [OffersPage]
 })
