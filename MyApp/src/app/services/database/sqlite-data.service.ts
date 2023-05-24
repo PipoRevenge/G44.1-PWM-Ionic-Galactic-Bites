@@ -23,27 +23,9 @@ export class SqliteDataService {
   constructor(private sqlite: SQLite, private platform: Platform) { }
 
   async initDatabase() {
-      this.sqlite.create({
-          name: 'data.db',
-          location: 'default'
-        })
-          .then((db: SQLiteObject) => {
-
-
-            db.executeSql('create table danceMoves(name VARCHAR(32))', [])
-              .then(() => console.log('Executed SQL'))
-              .catch(e => console.log(e));
-
-
-          })
-          .catch(e => console.log(e));
-
-
-
-
 
   try {
-    await this.platform.ready();
+    
 
     const dbInstance = await this.sqlite.create({
       name: 'mydatabase.db',

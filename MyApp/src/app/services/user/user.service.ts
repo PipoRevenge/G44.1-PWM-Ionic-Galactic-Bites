@@ -61,7 +61,7 @@ export class UserService {
   }
 }
   async setUpFavoritosWey(): Promise<void> {
-     return this.favProductsServices.setAllFavProduct(this.user.favProducts);
+     return await this.favProductsServices.setAllFavProduct(this.user.favProducts);
   }
 
   async signup(name: string, email: string, password: string, phone: string): Promise<boolean> {  

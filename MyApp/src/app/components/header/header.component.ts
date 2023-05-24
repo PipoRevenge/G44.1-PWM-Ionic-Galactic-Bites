@@ -38,6 +38,18 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([url]);
   }
 
+
+  checkUser(): void {
+      if (this.userService.user) { 
+          this.userService.getUserPoints();
+      } else {
+        if (this.userService.emailExists("alejandrosc2001@hotmail.com")) {
+          console.log("exitse")
+          if(this.userService.login("alejandrosc2001@hotmail.com", "Pipo123")){console.log("exitoso")}
+        } else {
+          console.log("noo no")
+        }
+      }
   navigateToProfile() {
     if (this.userService.isLogged()) this.navigateTo('/profile');
     else this.navigateTo('/login');
