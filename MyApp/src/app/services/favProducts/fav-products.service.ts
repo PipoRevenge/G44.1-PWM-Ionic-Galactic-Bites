@@ -36,17 +36,23 @@ export class FavProductsService {
     }
   }
   async setAllFavProduct(products: string[]) {
+
     let currentValue = products;
-    currentValue.forEach(async (value) => {
-      let mod =  this.productService.getItem(value)
-      console.log(mod);
+    console.log(products);
+  for (let i = 0; i < currentValue.length; i++) {
+    const value = currentValue[i];
+    let mod = this.productService.getItem(value);
+    console.log(mod);
+      this.productService.setUp().then(() => {
+        this.sqliteDataServices.addFavProduct(mod);
+      })
+      
 
-      this.sqliteDataServices.addFavProduct(mod);
 
-
-    })
-    this.FavProductsSubject.next([...currentValue]);
   }
+  this.FavProductsSubject.next([...currentValue]);
+}
+
   async getfavProducts(): Promise<Product[]> {
     return await this.sqliteDataServices.getAllFavProducts();
   }

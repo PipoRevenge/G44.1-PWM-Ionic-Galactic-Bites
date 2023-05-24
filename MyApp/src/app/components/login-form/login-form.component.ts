@@ -20,8 +20,7 @@ export class LoginFormComponent implements Form {
 	@ViewChild('email') email!: ElementRef;
 	@ViewChild('password') password!: ElementRef;
 	
-	// constructor(private router: Router, private fb: FormBuilder,private userService: UserService) {
-	constructor(private router: Router, private fb: FormBuilder) {
+	constructor(private router: Router, private fb: FormBuilder,private userService: UserService) {
 		this.loginForm = this.fb.group({
 			email: ['', [Validators.required, Validators.email]],
 			password: ['', [Validators.required, PasswordValidator.strong()]]
@@ -48,9 +47,9 @@ export class LoginFormComponent implements Form {
 	}
 
 	resetErrors(): void {
-		this.inputs.forEach((input) => {
-			input.nativeElement.style.boxShadow = 'none';
-		});
+		// this.inputs.forEach((input) => {
+		// 	input.nativeElement.style.boxShadow = 'none';
+		// });
 	}
 
 	signUp(): void {
@@ -67,42 +66,42 @@ export class LoginFormComponent implements Form {
 			let password: string = this.loginForm.value.password;
 
 			try {
-				// await this.userService.login(email, password).then(async (booleano) => {
-				// 	if (booleano) {
-				// 	await Swal.fire({
-				// 	title: '¡Inicio de sesión exitoso!',
-				// 	text: 'Bienvenido de vuelta.',
-				// 	icon: 'success'
-				// });
-				// 	} else {
-				// 	await Swal.fire({
-				// 	title: '¡Opss.. Parece que no estas registrado!',
-				// 	text: 'O te habras equivocado',
-				// 	icon: 'error'
-				// });
+				await this.userService.login(email, password).then(async (booleano) => {
+					if (booleano) {
+					await Swal.fire({
+					title: '¡Inicio de sesión exitoso!',
+					text: 'Bienvenido de vuelta.',
+					icon: 'success'
+				});
+					} else {
+					await Swal.fire({
+					title: '¡Opss.. Parece que no estas registrado!',
+					text: 'O te habras equivocado',
+					icon: 'error'
+				});
 						
-				// 	}
-				// });
+					}
+				});
 				
 				this.router.navigate(['profile']);
 			} catch (error) {
-				// if (!this.userService.emailExists(email)) {
-				// 	console.log('email doesn\'t exists');
-				// 	this.onError(this.email);
-				// 	await Swal.fire({
-				// 		title: 'Error',
-				// 		text: 'El correo electrónico no existe.',
-				// 		icon: 'error'
-				// 	});
-				// } else {
-				// 	console.log('password does not match');
-				// 	this.onError(this.password);
-				// 	await Swal.fire({
-				// 		title: 'Error',
-				// 		text: 'La contraseña no coincide.',
-				// 		icon: 'error'
-				// 	});
-				// }
+				if (!this.userService.emailExists(email)) {
+					console.log('email doesn\'t exists');
+					this.onError(this.email);
+					await Swal.fire({
+						title: 'Error',
+						text: 'El correo electrónico no existe.',
+						icon: 'error'
+					});
+				} else {
+					console.log('password does not match');
+					this.onError(this.password);
+					await Swal.fire({
+						title: 'Error',
+						text: 'La contraseña no coincide.',
+						icon: 'error'
+					});
+				}
 			}
 		}
 	}

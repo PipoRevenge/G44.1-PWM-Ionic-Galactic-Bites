@@ -22,10 +22,9 @@ export class AppComponent {
   }
   
   async setUp() {
-  
+    return this.productservices.setUp();
   }
   async initializeApp() {
-    await this.productservices.setUp()
     this.platform.ready().then(() => {
       this.sqliteDataService.initDatabase();
     });

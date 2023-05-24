@@ -26,7 +26,6 @@ export class SqliteDataService {
 
   try {
     
-
     const dbInstance = await this.sqlite.create({
       name: 'mydatabase.db',
       location: 'default'
@@ -58,8 +57,10 @@ export class SqliteDataService {
 }
 async addFavProduct(producto:Product) {
   try {
-    const data = [producto.category, producto.description, producto.discount, producto.hasPoints, producto.image, producto.name, producto.price];
-    const result = await this.db.executeSql(`INSERT INTO products (category, description, discount, hasPoints, image, name, price) VALUES (?, ?, ?, ?, ?, ?, ?)`, data);
+
+    const data = [producto.id, producto.category, producto.description, producto.discount, producto.hasPoints, producto.image, producto.name, producto.price];
+    console.log(data);
+    const result = await this.db.executeSql(`INSERT INTO products (id,category, description, discount, hasPoints, image, name, price) VALUES (?,?, ?, ?, ?, ?, ?, ?)`, data);
     console.log('Producto añadido a la tabla', result);
   } catch (error) {
     console.error('Error al añadir el producto a la tabla', error);
