@@ -9,7 +9,7 @@
       <app-banner-carousel></app-banner-carousel>
       <ion-row class="wrapper ion-flex-wrap ion-justify-content-start">
         <ng-container *ngFor="let product of discounted">
-          <app-product class="product"></app-product>
+          <app-product class="product" (click)="openProductModal()"></app-product>
         </ng-container>
     </ion-row>
     </ion-card>
@@ -18,7 +18,7 @@
       <ion-img [src]="'../../../assets/points.png'"></ion-img>
       <ion-row class="wrapper ion-flex-wrap ion-justify-content-start">
         <ng-container *ngFor="let product of pointed">
-          <app-product class="product"></app-product>
+          <app-product class="product" (click)="openProductModal()"></app-product>
         </ng-container>
     </ion-row>
     </ion-card>  

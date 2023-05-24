@@ -12,6 +12,7 @@ import { FooterModule } from 'src/app/components/footer/footer.module';
 import { BannerCarouselModule } from 'src/app/components/banner-carousel/banner-carousel.module';
 import { ProductModule } from 'src/app/components/product/product.module';
 import { HeaderModule } from 'src/app/components/header/header.module';
+import { ProductDetailPopupModule } from 'src/app/components/product-detail-popup/product-detail-popup.module';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { HeaderModule } from 'src/app/components/header/header.module';
     FooterModule,
     BannerCarouselModule,
     ProductModule,
-    HeaderModule
+    HeaderModule,
+    ProductDetailPopupModule
   ],
   declarations: [OffersPage]
 })
