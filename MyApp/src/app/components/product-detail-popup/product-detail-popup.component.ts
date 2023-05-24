@@ -2,32 +2,32 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product/product.service';
-import { ShoppingCartService } from 'src/app/services/shopping-cart/shopping-cart.service';
-import { UserService } from 'src/app/services/user/user.service';
-
 @Component({
   selector: 'app-product-detail-popup',
   templateUrl: './product-detail-popup.component.html',
   styleUrls: ['./product-detail-popup.component.scss']
 })
-export class ProductDetailPopupComponent{
-  name: string;
+export class ProductDetailPopupComponent implements OnInit {
   product: Product | null = null;
-  
-  constructor(private modalCtrl: ModalController) {}
+  saved: string = 'heart-outline';
+
+  constructor(private modalController: ModalController) {}
+
+  ngOnInit(): void {
+    console.log(this.product);
+  }
 
   cancel() {
-    return this.modalCtrl.dismiss(null, 'cancel');
+    return this.modalController.dismiss(null, 'cancel');
   }
 
+  save() {
+    if (this.saved == 'heart-outline') this.saved = 'heart';
+    else this.saved = 'heart-outline';
+  }
+  
   confirm() {
-    return this.modalCtrl.dismiss(this.name, 'confirm');
-  }
-
-  setName($event) {
-    this.name = $event.target.value;
-    console.log(this.name);
+    return this.modalController.dismiss(this.product.id, 'confirm');
   }
 
   // url: string = '../../../assets/placeholder.png';

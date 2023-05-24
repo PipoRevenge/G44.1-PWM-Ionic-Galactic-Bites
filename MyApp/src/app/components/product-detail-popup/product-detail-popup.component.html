@@ -1,16 +1,27 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
-    </ion-buttons>
-    <ion-title>Welcome</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-content class="ion-padding">
-  <ion-item>
-    <ion-input labelPlacement="stacked" label="Enter your name" [value]="name" (input)="setName($event)" placeholder="Your name"></ion-input>
-  </ion-item>
-</ion-content>
+<ng-container *ngIf="product">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-icon class="heart" [name]="saved" (click)="save()"></ion-icon>
+        <ion-button (click)="confirm()" [strong]="true">Añadir</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <app-space-background class="space"></app-space-background>
+    <ion-grid class="product">
+      <ion-img [src]="product.image"></ion-img>
+      <div class="info">
+        <h2 class="name">{{ product.name }}</h2>
+        <ion-label class="price">Precio: 
+          <span id="discount" *ngIf="!product.hasPoints">{{ product.price }} €</span>
+          <span id="price" *ngIf="product.hasPoints">1000 puntos</span>
+        </ion-label>
+      </div>
+      <p class="description">{{ product.description }}</p>
+    </ion-grid>
+  </ion-content>
+</ng-container>

@@ -1,1 +1,72 @@
-.modal { z-index: 100; }
+@import '../../../theme/variables.scss';
+
+ion-toolbar { --ion-toolbar-background: #000; }
+ion-content { padding: 0; }
+
+.space {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.heart {
+    cursor: pointer;
+    font-size: 15pt;
+    font-weight: bold;
+    margin-right: .5em;
+
+    &:hover { transform: scale(1.1); }
+    &:active { transform: scale(1); }
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba($black, .6);
+    min-height: 100%;
+    height: fit-content;
+
+    align-items: center;
+    font-size: 5vw;
+    padding: 5%;
+    margin: 0;
+
+    ion-img {
+        width: 100%;
+        height: 9em;
+        object-fit: cover;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-block: 5%;
+        
+        .name {
+            font-size: 8vw;
+            text-transform: uppercase;
+            font-style: italic;
+            font-weight: bold;
+            margin-bottom: 6%;
+            text-shadow: 1px 1px .1em $lavender;
+        }
+
+        .price {
+            font-size: 4vw;
+            width: 100%;
+            text-align: start;
+            text-transform: uppercase;
+            font-weight: 200;
+        }
+    }
+
+    .description {
+        width: 100%;
+        text-align: justify;
+    }
+}
