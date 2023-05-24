@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPage implements OnInit {
 
+  products: number[] = [1, 2, 3, 4, 5]
+
   constructor() { }
 
   ngOnInit() {

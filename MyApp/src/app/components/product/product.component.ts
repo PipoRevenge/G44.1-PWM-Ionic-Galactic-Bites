@@ -15,24 +15,33 @@ export class ProductComponent implements OnInit {
   @Output() details: EventEmitter<Product> = new EventEmitter<Product>();
 
   image: string = '../../assets/placeholder.png';
-  product: Product | null = null;
+  product: Product | null = { 
+    id: '2', 
+    image: '../../../assets/placeholder.png',
+    name: 'borguesa',
+    description: 'borguesa rica',
+    price: 12,
+    discount: 60,
+    category: 'principales',
+    hasPoints: false
+  };
   discount: number = 0;
   points: number = 0;
 
   constructor(private router: Router, private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.product = this.productService.getItem(this.productId);
-    this.setUrl();
-    this.points = this.productService.getPointsCost(this.productId);
+    // this.product = this.productService.getItem(this.productId);
+    // this.setUrl();
+    // this.points = this.productService.getPointsCost(this.productId);
   }
 
-  private setUrl() {
-    this.productService.getURL(this.productId).subscribe({
-      next: (url: string) => this.image = url,
-      error: (error: any) => console.error('error getting url:', error)
-    });
-  }
+  // private setUrl() {
+  //   this.productService.getURL(this.productId).subscribe({
+  //     next: (url: string) => this.image = url,
+  //     error: (error: any) => console.error('error getting url:', error)
+  //   });
+  // }
 
   onDetails() {
     if (!this.product) return;
@@ -40,10 +49,12 @@ export class ProductComponent implements OnInit {
   }
 
   showDiscount(): boolean {
-    return this.productService.isOnDiscount(this.productId);
+    // return this.productService.isOnDiscount(this.productId);
+    return true;
   }
 
   showPoints(): boolean {
-    return this.productService.isOnPoints(this.productId);
+    // return this.productService.isOnPoints(this.productId);
+    return false;
   }
 }

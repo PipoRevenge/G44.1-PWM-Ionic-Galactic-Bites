@@ -3,11 +3,16 @@
 .menu {
     align-self: center;
     background-color: rgba($black, .5);
-    height: 100%;
-    max-height: fit-content;
+    min-height: 100%;
+    height: fit-content;
     width: 90%;
     margin-top: 50px;
     padding: 0;
+
+    .wrapper {
+        padding-left: 2%;    
+        .product { margin: 4%; }
+    }
 }
 
 .space {

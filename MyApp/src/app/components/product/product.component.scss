@@ -1,0 +1,93 @@
+@import '../../../theme/variables.scss';
+
+.container {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 8em;
+    height: 8em;
+    font-size: 2.65vw;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: rgba($black, .6);
+    border: 2px solid $black;
+    margin: 0;
+    padding: 0;
+
+    .product {
+        box-sizing: border-box;
+        
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+
+        display: flex;
+        flex-direction: column;
+    
+        ion-img {
+            background-color: $white;
+            height: 70%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .header {
+            height: 30%;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            color: $white;
+            font-weight: bold;
+            padding: 2%;
+            overflow: hidden;
+
+            box-sizing: border-box;
+
+            .title {
+                text-transform: uppercase;
+                font-style: italic;
+                font-size: 2vw;
+                width: 80%;
+                font-weight: bold;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                text-align: center;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .overlay-tag {
+        top: 5%;
+        right: 0;
+        position: absolute;
+        cursor: pointer;
+        background-color: $lavender;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.2em;
+        height: 1.5em;
+        padding-bottom: .2em;
+        font-size: 2vw;
+        border-radius: 5px;
+        color: $white;
+        font-weight: bold;
+
+        .price { cursor: pointer; }
+    }
+
+    &:hover {
+        background-color: $black;
+
+        img { opacity: 0.95; }
+        .text-container .name { color: $turquoise; }
+    }
+}

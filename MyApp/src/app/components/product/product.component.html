@@ -1,3 +1,10 @@
-<p>
-  product works!
-</p>
+<ion-card class="container" *ngIf="product" (click)="onDetails()">
+  <ion-card-content class="product">
+    <ion-img [src]="image"></ion-img>
+    <ion-card-header class="header"><ion-card-title class="title">{{ product.name }}</ion-card-title></ion-card-header>
+  </ion-card-content>
+  <div *ngIf="showDiscount() || showPoints()" class="overlay-tag">
+    <ion-label *ngIf="showDiscount()" class="price">- {{ product.discount }} %</ion-label>
+    <ion-label *ngIf="showPoints()" class="price">{{ points }}</ion-label>
+  </div>
+</ion-card>
