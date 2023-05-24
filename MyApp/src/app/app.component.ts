@@ -24,9 +24,9 @@ export class AppComponent {
   async setUp() {
     this.productservices.setUp();
   }
-//   // initializeApp() {
-//   // this.platform.ready().then(() => {
-//   //   this.sqliteDataService.initDatabase();
-//   // });
-// }
+  initializeApp() {
+  this.platform.ready().then(() => {
+    this.sqliteDataService.initDatabase();
+  });
+}
 }
