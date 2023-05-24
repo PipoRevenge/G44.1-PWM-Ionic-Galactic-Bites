@@ -13,14 +13,8 @@ import Swal from 'sweetalert2';
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.scss']
 })
-export class SignupFormComponent implements AfterViewInit {
+export class SignupFormComponent {
 	signupForm: FormGroup;
-
-	name: HTMLElement;
-	email: HTMLElement;
-	tel: HTMLElement;
-	password: HTMLElement;
-	confirmPassword: HTMLElement;
 
 	constructor(private router: Router, private fb: FormBuilder, private userService: UserService) {
 		this.signupForm = this.fb.group ({
@@ -32,13 +26,6 @@ export class SignupFormComponent implements AfterViewInit {
 		});
 	}
 
-	ngAfterViewInit(): void {
-		this.name = document.getElementById('name');
-		this.email = document.getElementById('email');
-		this.tel = document.getElementById('tel');
-		this.password = document.getElementById('password');
-		this.confirmPassword = document.getElementById('confirm-password');
-	}
 
 	checkErrors(): boolean {
 		let errors: boolean = false;
