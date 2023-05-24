@@ -2,8 +2,11 @@
   <app-header></app-header>
 </ion-header>
 <ion-content [fullscreen]="true" class="content"> 
+  <app-space-background class="space"></app-space-background>
   <ion-grid class="login">
-    <app-space-background class="space"></app-space-background>
+    <ion-col class="align-items-center">
+      <app-login-form class="login-form"></app-login-form>
+    </ion-col>
   </ion-grid>
 </ion-content>
 <ion-footer class="footer">
