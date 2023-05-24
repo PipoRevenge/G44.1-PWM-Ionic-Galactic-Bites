@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 40vw;
+    height: 50vw;
 
     margin: 0;
 
@@ -39,7 +39,7 @@
         }
 
         .cyber-btn {
-            @include cyber-btn(7.5em, 1.8em, 4vw, $black, $lavender, $raleway);
+            @include cyber-btn(8em, 2em, 4vw, $black, $lavender, $raleway);
             &:active { transform: translateY(10%); }
         }
     }
