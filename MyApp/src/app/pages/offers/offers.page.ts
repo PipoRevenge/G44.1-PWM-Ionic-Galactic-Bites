@@ -9,6 +9,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class OffersPage implements OnInit, AfterViewInit {
 
+  discounted: number[] = [1, 2, 3, 5, 6, 7, 8];
+  pointed: number[] = [1, 2, 3, 4];
+
   constructor(private viewportScroller: ViewportScroller, private route: ActivatedRoute) { }
 
   ngOnInit() {

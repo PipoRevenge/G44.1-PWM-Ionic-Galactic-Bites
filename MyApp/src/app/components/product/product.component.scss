@@ -7,7 +7,7 @@
     position: relative;
     width: 8em;
     height: 8em;
-    font-size: 2.65vw;
+    font-size: 5vw;
     border-radius: 15px;
     overflow: hidden;
     background-color: rgba($black, .6);
@@ -52,7 +52,7 @@
             .title {
                 text-transform: uppercase;
                 font-style: italic;
-                font-size: 2vw;
+                font-size: 1.4em;
                 width: 80%;
                 font-weight: bold;
                 margin: 0;
@@ -76,7 +76,7 @@
         width: 3.2em;
         height: 1.5em;
         padding-bottom: .2em;
-        font-size: 2vw;
+        font-size: .9em;
         border-radius: 5px;
         color: $white;
         font-weight: bold;

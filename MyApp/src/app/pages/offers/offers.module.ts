@@ -10,6 +10,7 @@ import { OffersPage } from './offers.page';
 import { SpaceBackgroundModule } from 'src/app/components/space-background/space-background.module';
 import { FooterModule } from 'src/app/components/footer/footer.module';
 import { BannerCarouselModule } from 'src/app/components/banner-carousel/banner-carousel.module';
+import { ProductModule } from 'src/app/components/product/product.module';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { BannerCarouselModule } from 'src/app/components/banner-carousel/banner-
     OffersPageRoutingModule,
     SpaceBackgroundModule,
     FooterModule,
-    BannerCarouselModule
+    BannerCarouselModule,
+    ProductModule
   ],
   declarations: [OffersPage]
 })
