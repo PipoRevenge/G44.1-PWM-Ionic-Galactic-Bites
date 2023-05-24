@@ -35,10 +35,13 @@ export class FavProductsService {
   }
   async setAllFavProduct(products: string[]) {
     let currentValue = products;
-    currentValue.forEach((value) => {
-      let mod = this.productService.getItem(value)
+    currentValue.forEach(async (value) => {
+      let mod =  this.productService.getItem(value)
       console.log(mod);
-      //this.sqliteDataServices.addFavProduct(mod);
+
+      this.sqliteDataServices.addFavProduct(mod);
+
+
     })
     this.FavProductsSubject.next([...currentValue]);
   }

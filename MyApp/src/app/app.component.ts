@@ -22,11 +22,12 @@ export class AppComponent {
   }
   
   async setUp() {
-    this.productservices.setUp();
+  
   }
-  initializeApp() {
-  this.platform.ready().then(() => {
-    this.sqliteDataService.initDatabase();
-  });
-}
+  async initializeApp() {
+    await this.productservices.setUp()
+    this.platform.ready().then(() => {
+      this.sqliteDataService.initDatabase();
+    });
+  }
 }
