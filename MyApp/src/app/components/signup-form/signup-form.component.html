@@ -1,3 +1,14 @@
-<p>
-  signup-form works!
-</p>
+<form class="signup-form" (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+  <h2>Registrarse</h2>
+  <ion-grid class="content ion-padding">
+      <ion-input #input #nameInput id="name" type="name" placeholder="Nombre *" formControlName="name"></ion-input>
+      <ion-input #input #emailInput id="email" type="email" placeholder="Correo electrónico *" formControlName="email"></ion-input>
+      <ion-input #input #phoneInput id="tel" type="tel" placeholder="Teléfono *" formControlName="tel"></ion-input>
+      <ion-input #input #passwordInput id="password" type="password" placeholder="Contraseña *" formControlName="password"></ion-input>
+      <ion-input #input #confirmPasswordInput id="confirm-password" type="password" placeholder="Repite la contraseña *" formControlName="confirmPassword"></ion-input>
+      <p class="password-label">Las contraseñas deben tener mínimo 6 carácteres, una mayúscula, una minúscula y un número</p>
+  </ion-grid>
+  <ion-grid class="bottom ion-padding align-items-center justify-content-center">
+    <button id="signup-btn" class="cyber-btn" type="submit">Registrarse</button>
+  </ion-grid>
+</form>

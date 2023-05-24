@@ -20,7 +20,8 @@ export class SignupFormComponent implements Form {
 	@ViewChild('emailInput') emailInput!: ElementRef;
 	@ViewChild('confirmPasswordInput') confirmPasswordInput!: ElementRef;
 
-	constructor(private router: Router, private fb: FormBuilder, private userService: UserService) {
+	// constructor(private router: Router, private fb: FormBuilder, private userService: UserService) {
+	constructor(private router: Router, private fb: FormBuilder) {
 		this.signupForm = this.fb.group ({
 			name: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(40)]],
 			email: ['', [Validators.required, Validators.email]],
@@ -79,15 +80,15 @@ export class SignupFormComponent implements Form {
 			let tel: string = this.signupForm.value.tel;
 			console.log('form:', name, email, password, tel);
 			
-			this.userService.signup(name, email, password, tel).then((value: boolean) => {
-				if(value) {
-					this.showAlert('Registrado con éxito', 'Te has registrado correctamente', 'success');
-					this.router.navigate(['profile']);
-				} else {
-					this.showAlert('Error', 'No se pudo registrar, por favor intenta de nuevo', 'error');
-					this.onError(this.emailInput);
-				}
-				});
+			// this.userService.signup(name, email, password, tel).then((value: boolean) => {
+			// 	if(value) {
+			// 		this.showAlert('Registrado con éxito', 'Te has registrado correctamente', 'success');
+			// 		this.router.navigate(['profile']);
+			// 	} else {
+			// 		this.showAlert('Error', 'No se pudo registrar, por favor intenta de nuevo', 'error');
+			// 		this.onError(this.emailInput);
+			// 	}
+			// 	});
 		}
 	}	
 }

@@ -1,11 +1,11 @@
-<form class="login-form ion-padding" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+<form class="login-form ion-padding" [formGroup]="loginForm">
   <h2>Iniciar Sesión</h2>
   <ion-grid class="content">
     <ion-input #input #email id="email" type="email" placeholder="Correo electrónico" formControlName="email"></ion-input>
     <ion-input #input #password id="password" type="password" placeholder="Contraseña" formControlName="password"></ion-input>
   </ion-grid>
   <ion-grid class="bottom ion-padding align-items-center justify-content-center">
-    <button id="login-btn" class="btn cyber-btn" type="submit">Iniciar Sesión</button>
+    <button id="login-btn" class="btn cyber-btn" (click)="onSubmit()">Iniciar Sesión</button>
     <button id="signup-btn" class="btn cyber-btn" (click)="signUp()">Registrarse</button>
   </ion-grid>
 </form>
