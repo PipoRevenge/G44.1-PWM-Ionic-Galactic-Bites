@@ -6,6 +6,7 @@
     box-sizing: border-box;
     background-color: $black;
     font-family: $raleway;
+    height: 50vw;
 
     ion-img {
         display: flex;
@@ -32,10 +33,10 @@
 
         h2 { 
             margin: 0 0 10% 0; 
-            font-size: 5vw;
+            font-size: 6vw;
             font-weight: bold;
             font-family: $raleway;
         }
-        .btn { @include cyber-btn(8em, 2em, 3vw, $black, $turquoise, $raleway); }
+        .btn { @include cyber-btn(8em, 2em, 5vw, $black, $turquoise, $raleway); }
     }
 }
