@@ -25,8 +25,9 @@ export class UserService {
   //    return true//return await this.firebaseAuthService.isLoggedIn();
   //  } 
 
-  isLogged(): Observable<boolean> {
-    return from(this.firebaseAuthService.isLoggedIn());
+  isLogged(): boolean {
+    // return from(this.firebaseAuthService.isLoggedIn());
+    return this.user != null;
   }
 
   async logout(): Promise<void> {

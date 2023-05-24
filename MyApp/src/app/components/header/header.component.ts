@@ -9,14 +9,14 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class HeaderComponent implements OnInit {
 
+  loggedIn: boolean = false;
   favs: any = { color: '' };
   cart: any = { color: '' };
 
   constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
-    this.updateNav();    
-    this.checkUser();
+    this.updateNav(); 
   }
 
   private resetNav() {
@@ -38,6 +38,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([url]);
   }
 
+
   checkUser(): void {
       if (this.userService.user) { 
           this.userService.getUserPoints();
@@ -49,5 +50,8 @@ export class HeaderComponent implements OnInit {
           console.log("noo no")
         }
       }
+  navigateToProfile() {
+    if (this.userService.isLogged()) this.navigateTo('/profile');
+    else this.navigateTo('/login');
   }
 }

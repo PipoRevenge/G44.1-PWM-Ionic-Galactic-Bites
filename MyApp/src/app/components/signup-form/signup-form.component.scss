@@ -1,0 +1,69 @@
+@import '../../../theme/variables.scss';
+@import '../../../theme/mixins.scss';
+
+.signup-form {
+    height: 90vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    background-color: rgba($black, 0.6);
+    color: $white;
+    font-family: $raleway;
+
+    h2 {
+        font-size: 25pt;
+        font-weight: bold;
+        margin: 0;
+        margin-top: 1em;
+        text-transform: uppercase;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-inline: 20%;
+        margin-top: 1em;
+
+        ion-input {
+            background-color: $black;
+            background: linear-gradient($black, $black) padding-box, linear-gradient(to right, $turquoise, $lavender) border-box;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            margin-bottom: 5%;
+            height: 1.3em;
+            width: 100%;
+            --padding-start: 5%;
+            font-weight: bold;
+            font-size: 12pt;
+
+            input::placeholder {
+                --padding-start: 5%;
+                font-weight: bold;
+            }
+        }       
+        
+        p {
+            margin: 0;
+            margin-top: 5%;
+            padding: 0;
+            text-align: justify;
+            width: 90%;
+            align-self: center;
+            font-size: 10pt;
+            font-weight: bold;
+            opacity: .8;
+        }
+    }
+
+    .bottom #signup-btn { 
+        @include cyber-btn(12em, 2.5em, 14pt, $black, $turquoise, $raleway); 
+    }
+}

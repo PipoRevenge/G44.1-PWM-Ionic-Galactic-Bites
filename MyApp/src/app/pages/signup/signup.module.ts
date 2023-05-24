@@ -11,6 +11,7 @@ import { HeaderModule } from 'src/app/components/header/header.module';
 import { SidebarModule } from 'src/app/components/sidebar/sidebar.module';
 import { FooterModule } from 'src/app/components/footer/footer.module';
 import { SpaceBackgroundModule } from 'src/app/components/space-background/space-background.module';
+import { SignupFormModule } from 'src/app/components/signup-form/signup-form.module';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { SpaceBackgroundModule } from 'src/app/components/space-background/space
     HeaderModule,
     SidebarModule,
     FooterModule,
-    SpaceBackgroundModule
+    SpaceBackgroundModule,
+    SignupFormModule
   ],
   declarations: [SignupPage]
 })

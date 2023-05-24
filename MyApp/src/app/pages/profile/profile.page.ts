@@ -11,6 +11,5 @@ export class ProfilePage implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    if (true) this.router.navigate(['/login']);
   }
 }
