@@ -35,9 +35,8 @@
         ion-input {
             background-color: $black;
             background: linear-gradient($black, $black) padding-box, linear-gradient(to right, $turquoise, $lavender) border-box;
-            border: 2px solid transparent;
-            border-radius: 50px;
-            margin-bottom: 5%;
+            border-bottom: 1px solid transparent;
+            margin-bottom: 8%;
             height: 1.3em;
             width: 100%;
             --padding-start: 5%;
@@ -49,18 +48,6 @@
                 font-weight: bold;
             }
         }       
-        
-        p {
-            margin: 0;
-            margin-top: 5%;
-            padding: 0;
-            text-align: justify;
-            width: 90%;
-            align-self: center;
-            font-size: 10pt;
-            font-weight: bold;
-            opacity: .8;
-        }
     }
 
     .bottom #signup-btn { 

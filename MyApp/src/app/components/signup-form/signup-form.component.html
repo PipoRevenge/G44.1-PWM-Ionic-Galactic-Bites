@@ -1,14 +1,13 @@
 <form class="signup-form" (ngSubmit)="onSubmit()" [formGroup]="signupForm">
   <h2>Registrarse</h2>
   <ion-grid class="content ion-padding">
-      <ion-input #input #nameInput id="name" type="name" placeholder="Nombre *" formControlName="name"></ion-input>
-      <ion-input #input #emailInput id="email" type="email" placeholder="Correo electrónico *" formControlName="email"></ion-input>
-      <ion-input #input #phoneInput id="tel" type="tel" placeholder="Teléfono *" formControlName="tel"></ion-input>
-      <ion-input #input #passwordInput id="password" type="password" placeholder="Contraseña *" formControlName="password"></ion-input>
-      <ion-input #input #confirmPasswordInput id="confirm-password" type="password" placeholder="Repite la contraseña *" formControlName="confirmPassword"></ion-input>
-      <p class="password-label">Las contraseñas deben tener mínimo 6 carácteres, una mayúscula, una minúscula y un número</p>
+      <ion-input class="input" id="name" type="name" placeholder="Nombre *" formControlName="name" errorText="Name is required"></ion-input>
+      <ion-input class="input" id="email" type="email" placeholder="Correo electrónico *" formControlName="email" errorText="Email is required"></ion-input>
+      <ion-input class="input" id="tel" type="tel" placeholder="Teléfono *" formControlName="tel" errorText="Phone must follow the pattern: XXX XXX XXX"></ion-input>
+      <ion-input class="input" id="password" type="password" placeholder="Contraseña *" formControlName="password" errorText="Needs an upper and lower letter and a number"></ion-input>
+      <ion-input class="input" id="confirm-password" type="password" placeholder="Repite la contraseña *" formControlName="confirmPassword" errorText="Please confirm password"></ion-input>
   </ion-grid>
   <ion-grid class="bottom ion-padding align-items-center justify-content-center">
-    <button id="signup-btn" class="cyber-btn" type="submit">Registrarse</button>
+    <button ion-button id="signup-btn" class="cyber-btn" type="submit">Registrarse</button>
   </ion-grid>
 </form>
