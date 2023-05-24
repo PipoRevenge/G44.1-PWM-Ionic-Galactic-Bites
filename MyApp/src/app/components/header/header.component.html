@@ -15,7 +15,7 @@
       <ion-icon id="star" class="i" name="star-outline" [style]="favs" (click)="navigateTo('/favs')"></ion-icon>
       <ion-row class="align-items-center">
         <ion-img id="user-pic" (click)="navigateToProfile()"
-          src="../../../assets/icon/user.png"
+          [src]="profile"
         ></ion-img>
       </ion-row>
     </ion-row>

@@ -13,10 +13,13 @@ export class HeaderComponent implements OnInit {
   favs: any = { color: '' };
   cart: any = { color: '' };
 
+  profile: string = '../../../assets/icon/user.png';
+
   constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     this.updateNav(); 
+    this.checkUser();
   }
 
   private resetNav() {
@@ -44,15 +47,7 @@ export class HeaderComponent implements OnInit {
   }
 
   checkUser(): void {
-    if (this.userService.user) { 
-        this.userService.getUserPoints();
-    } else {
-      if (this.userService.emailExists("alejandrosc2001@hotmail.com")) {
-        console.log("exitse")
-        if(this.userService.login("alejandrosc2001@hotmail.com", "Pipo123")){console.log("exitoso")}
-      } else {
-        console.log("noo no")
-      }
-    }
+    if (this.userService.isLogged()) this.profile = "../../../assets/profile.jpg";
+    else this.profile = '../../../assets/icon/user.png';
   }
 }

@@ -1,0 +1,103 @@
+@import '../../../theme/variables.scss';
+@import '../../../theme/mixins.scss';
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+
+    .wallpaper {
+        width: 100%;
+        height: 15vh;
+
+        background: radial-gradient(circle, $lavender-pink 0%, $lavender 100%);
+        box-shadow: inset 0 0 5px rgba($eerie-black, 0.7);
+    }
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        transform: translateY(-40%);
+
+        .profile-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: $white;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            font-family: $raleway;
+            text-align: center;
+
+            #name {
+                font-weight: bold;
+                font-size: 18pt;
+            }
+
+            #email { font-size: 12pt; }
+        }
+    }
+
+    .btn-section {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        transform: translateY(-620%);
+
+        .logout {
+            color: $white;
+            font-size: 15pt;
+            padding-inline: 10%;
+        
+            &:hover { transform: scale(1.1); }
+            &:active { transform: scale(1); }
+        }
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: -30px;
+
+    .output-section {
+        width: 100%;
+
+        .h {
+            font-size: 14pt;
+            margin-right: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        .output {
+            width: 9em;
+            border-radius: 5px;
+            padding: 5px;
+            height: 2em;
+            display: flex;
+            align-items: center;
+    
+            font-size: 14pt;
+            pointer-events: none;
+            border: 2px solid rgba($lavender, 0.6);
+        }
+    }
+
+    #points-section { margin-bottom: 40px; }
+    #tel-section {
+        .h { font-size: 15pt; }
+        .output { font-size: 12pt; }
+    }
+}
