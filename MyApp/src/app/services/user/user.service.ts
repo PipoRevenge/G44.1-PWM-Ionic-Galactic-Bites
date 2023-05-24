@@ -74,12 +74,7 @@ export class UserService {
   async setUpCarritoWey(): Promise<void> {
     return this.shoppingCartService.setData(this.user.shoppingCart);
   }
-  async setUpCFavProducts(): Promise<void> {
-     this.user.favProducts.forEach((productId) => {
-      return this.favProductsServices.addItem(productId);
-    })
-    
-  }
+
   async setPoints(newPoints:number):Promise<void> {
     this.user.points += newPoints;
     await this.saveUserData(this.user);
