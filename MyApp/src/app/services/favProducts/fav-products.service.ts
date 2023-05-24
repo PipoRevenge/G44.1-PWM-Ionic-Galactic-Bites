@@ -13,7 +13,7 @@ export class FavProductsService {
   private FavProductsSubject: BehaviorSubject<string[]> = new BehaviorSubject([]);
   FavProducts$: Observable<string[]> = this.FavProductsSubject.asObservable();
 
-  constructor(private itemService: ProductService, private productService:ProductService, private sqliteDataServices:SqliteDataService) { }
+  constructor(private itemService: ProductService, private productService:ProductService, private sqliteDataServices:SqliteDataService) {  this.sqliteDataServices.initDatabase();}
 
   deleteItem(itemId: string): void {
     const currentValue = this.FavProductsSubject.getValue();
@@ -34,7 +34,6 @@ export class FavProductsService {
     }
   }
   async setAllFavProduct(products: string[]) {
-    this.sqliteDataServices.initDatabase();
     let currentValue = products;
         currentValue.forEach((value) => {
         this.sqliteDataServices.addFavProduct(this.productService.getItem(value));

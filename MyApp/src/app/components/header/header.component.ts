@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit,  ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-// import { UserService } from 'src/app/services/user/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +12,11 @@ export class HeaderComponent implements OnInit {
   favs: any = { color: '' };
   cart: any = { color: '' };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     this.updateNav();    
-    // this.checkUser();
+    this.checkUser();
   }
 
   private resetNav() {
@@ -38,10 +38,16 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([url]);
   }
 
-  // checkUser(): void {
-  //     if (this.userService.user) {
-  //         this.userPic = "../../../assets/profile.jpg";
-  //         this.points = this.userService.getUserPoints();
-  //     } else this.userPic =  "../../../assets/icons/user.png";
-  // }
+  checkUser(): void {
+      // if (this.userService.user) { 
+      //     this.userService.getUserPoints();
+      // } else {
+      //   if (this.userService.emailExists("alejandrosc2001@hotmail.com")) {
+      //     console.log("exitse")
+      //     if(this.userService.login("alejandrosc2001@hotmail.com", "Pipo123")){console.log("exitoso")}
+      //   } else {
+      //     console.log("noo no")
+      //   }
+      // }
+  }
 }
