@@ -3,7 +3,29 @@
 </ion-header>
 <ion-content [fullscreen]="true" class="content"> 
   <ion-grid class="profile">
-    profile
+    <ion-col class="profile-header">
+      <div class="wallpaper"></div>
+      <div class="profile">
+          <ion-img class="profile-icon" src="../../../assets/profile.jpg"></ion-img>
+          <div class="text">
+              <ion-label id="name" *ngIf="userService.user">{{ userService.user.name }}</ion-label>
+              <ion-label id="email" *ngIf="userService.user">{{ userService.user.email }}</ion-label>
+          </div>
+      </div>
+      <div class="btn-section">
+        <ion-icon class="logout" name="log-out-outline" (click)="logout()"></ion-icon>
+      </div>
+    </ion-col>
+    <ion-grid class="content ion-padding">
+      <ion-row id="points-section" class="output-section align-items-center">
+          <ion-label class="h">Puntos</ion-label>
+          <ion-label class="output" *ngIf="userService.user">{{ userService.user.points }}</ion-label>
+      </ion-row>
+      <ion-row id="tel-section" class="output-section align-items-center">
+          <ion-label class="h">Teléfono</ion-label>
+          <ion-label class="output" *ngIf="userService.user">{{ userService.user.phone }}</ion-label>
+      </ion-row>
+    </ion-grid>
   </ion-grid>
 </ion-content>
 <ion-footer class="footer">
